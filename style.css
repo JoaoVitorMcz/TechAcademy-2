@@ -1,0 +1,143 @@
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Ajustes no Cabeçalho */
+.navbar-brand {
+    font-size: 1.5rem; /* Aumenta o tamanho da marca */
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #0d6efd !important; /* Cor primária do Bootstrap */
+}
+
+/* Seção Hero */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('[https://placehold.co/1920x600/D8BFD8/483D8B?text=Fundo+Semijoias+Elegantes](https://placehold.co/1920x600/D8BFD8/483D8B?text=Fundo+Semijoias+Elegantes)') no-repeat center center;
+    background-size: cover;
+    min-height: 60vh; /* Altura mínima para melhor visualização */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 50px; /* Canto arredondado */
+    border-bottom-right-radius: 50px; /* Canto arredondado */
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Cards de Produto */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; /* Sombra mais pronunciada */
+}
+
+.card-title {
+    color: #333;
+}
+
+.card-text.small {
+    font-size: 0.875rem;
+    min-height: 60px; /* Garante uma altura mínima para descrições */
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #E6A4B4; /* Tom de rosa suave */
+    border-color: #E6A4B4;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #D98A9F; /* Tom de rosa um pouco mais escuro */
+    border-color: #D98A9F;
+}
+
+.btn-light {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+.btn-outline-primary {
+    border-color: #E6A4B4;
+    color: #E6A4B4;
+}
+
+.btn-outline-primary:hover {
+    background-color: #E6A4B4;
+    color: #fff;
+}
+
+
+/* Seção de Contato */
+#contato {
+    background-color: #f9f9f9; /* Um cinza bem claro para destacar o formulário */
+}
+
+#contactForm {
+    border: 1px solid #ddd; /* Borda sutil no formulário */
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control, .form-select {
+    border-radius: 0.5rem; /* Bordas mais arredondadas para os campos */
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #E6A4B4; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 0.25rem rgba(230, 164, 180, 0.25); /* Sombra ao focar */
+}
+
+/* Rodapé */
+footer a.text-white:hover {
+    color: #E6A4B4 !important; /* Cor de destaque ao passar o mouse nos ícones sociais */
+}
+
+/* Classes de utilidade */
+.rounded-3 {
+    border-radius: 0.75rem !important;
+}
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 40vh;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    #produtos .col-md-6.col-lg-3 {
+        margin-bottom: 1.5rem; /* Espaçamento entre cards em telas menores */
+    }
+    #contactForm {
+        padding: 1.5rem !important;
+    }
+}
