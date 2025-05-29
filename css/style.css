@@ -1,143 +1,241 @@
+/* Import Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Definição das variáveis de cor */
+:root {
+    --color-primary: #F9DC5C; /* Destaques Fortes */
+    --color-secondary-highlight: #FAE588; /* Destaques Suaves */
+    --color-light-background-cards: #FCEFB4; /* Fundos Claros/Cards */
+    --color-very-light-background-base: #FDF8E1; /* Fundos Muito Claros/Base */
+    --color-text-main: #333333; /* Texto Principal */
+    --color-text-secondary: #555555; /* Texto Secundário/Detalhes */
+    --color-bootstrap-secondary-grey: #6C757D; /* Bootstrap Cinza para referência */
+
+    --font-family-base: 'Inter', sans-serif;
+}
+
+/* Estilos Globais */
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
-
-/* Ajustes no Cabeçalho */
-.navbar-brand {
-    font-size: 1.5rem; /* Aumenta o tamanho da marca */
-}
-
-.nav-link {
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: #0d6efd !important; /* Cor primária do Bootstrap */
-}
-
-/* Seção Hero */
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('[https://placehold.co/1920x600/D8BFD8/483D8B?text=Fundo+Semijoias+Elegantes](https://placehold.co/1920x600/D8BFD8/483D8B?text=Fundo+Semijoias+Elegantes)') no-repeat center center;
-    background-size: cover;
-    min-height: 60vh; /* Altura mínima para melhor visualização */
+    font-family: var(--font-family-base);
+    color: var(--color-text-main);
+    background-color: var(--color-very-light-background-base); /* Fundo base do site */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom-left-radius: 50px; /* Canto arredondado */
-    border-bottom-right-radius: 50px; /* Canto arredondado */
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o footer fique no final da página mesmo com pouco conteúdo */
 }
 
-.hero-section h1 {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+main {
+    flex-grow: 1; /* Faz o main ocupar o espaço restante */
 }
 
-/* Cards de Produto */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* Um pouco mais de peso para títulos */
+    color: var(--color-text-main);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e4c738; /* Um tom mais escuro do primário para hover */
+    text-decoration: underline;
+}
+
+/* Classes de Background com as cores da paleta */
+.bg-primary-custom { background-color: var(--color-primary) !important; }
+.bg-secondary-highlight { background-color: var(--color-secondary-highlight) !important; }
+.bg-light-cards { background-color: var(--color-light-background-cards) !important; }
+.bg-very-light-clear { background-color: var(--color-very-light-background-base) !important; } /* Usado no navbar */
+
+/* Classes de Texto com as cores da paleta */
+.text-main-text { color: var(--color-text-main) !important; }
+.text-secondary-text { color: var(--color-text-secondary) !important; }
+
+/* Header e Navbar */
+.navbar {
+    border-bottom: 1px solid var(--color-secondary-highlight);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: var(--color-text-main);
+    font-weight: 500;
+    padding: 0.8rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 0.25rem; /* Cantos arredondados para links */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--color-text-main); /* Ou um preto/escuro para contraste */
+    background-color: var(--color-secondary-highlight);
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: 700;
+    background-color: var(--color-primary);
+    color: var(--color-text-main);
+}
+
+.dropdown-menu {
+    background-color: var(--color-very-light-background-base);
+    border: 1px solid var(--color-secondary-highlight);
+    border-radius: 0.375rem; /* Bootstrap default */
+}
+
+.dropdown-item {
+    color: var(--color-text-main);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--color-secondary-highlight);
+    color: var(--color-text-main);
+}
+
+
+/* Botões */
+.btn {
+    padding: 0.5rem 1.25rem; /* Aumenta um pouco o padding para melhor toque */
+    font-weight: 500;
+    border-radius: 0.375rem; /* Cantos arredondados padrão Bootstrap */
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-main); /* Texto escuro para contraste com amarelo */
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #e4c738; /* Mais escuro */
+    border-color: #e4c738;
+    color: var(--color-text-main);
+    box-shadow: 0 0 0 0.25rem rgba(249, 220, 92, 0.5); /* Sombra no foco */
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary-highlight);
+    border-color: var(--color-secondary-highlight);
+    color: var(--color-text-main);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: #e0cf73; /* Mais escuro */
+    border-color: #e0cf73;
+    color: var(--color-text-main);
+    box-shadow: 0 0 0 0.25rem rgba(250, 229, 136, 0.5);
+}
+
+/* Cards */
 .card {
+    border: 1px solid var(--color-secondary-highlight);
+    background-color: var(--color-light-background-cards);
+    border-radius: 0.5rem; /* Cantos mais arredondados */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; /* Sombra mais pronunciada */
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
-    color: #333;
+    color: var(--color-text-main);
+    font-weight: 600;
 }
 
-.card-text.small {
-    font-size: 0.875rem;
-    min-height: 60px; /* Garante uma altura mínima para descrições */
+.card-text {
+    color: var(--color-text-secondary);
 }
 
-/* Botões */
-.btn-primary {
-    background-color: #E6A4B4; /* Tom de rosa suave */
-    border-color: #E6A4B4;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+.card img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    object-fit: cover; /* Garante que a imagem cubra a área designada sem distorcer */
+    aspect-ratio: 1 / 1; /* Para imagens de produto quadradas, ajuste conforme necessário */
 }
 
-.btn-primary:hover {
-    background-color: #D98A9F; /* Tom de rosa um pouco mais escuro */
-    border-color: #D98A9F;
+/* Formulários */
+.form-control, .form-select {
+    border: 1px solid var(--color-secondary-highlight);
+    background-color: #fff; /* Fundo branco para campos para melhor legibilidade */
+    color: var(--color-text-main);
+    border-radius: 0.375rem;
 }
 
-.btn-light {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-light:hover {
-    background-color: #f8f9fa;
-    color: #000;
-}
-
-.btn-outline-primary {
-    border-color: #E6A4B4;
-    color: #E6A4B4;
-}
-
-.btn-outline-primary:hover {
-    background-color: #E6A4B4;
-    color: #fff;
-}
-
-
-/* Seção de Contato */
-#contato {
-    background-color: #f9f9f9; /* Um cinza bem claro para destacar o formulário */
-}
-
-#contactForm {
-    border: 1px solid #ddd; /* Borda sutil no formulário */
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(249, 220, 92, 0.3);
+    background-color: #fff;
 }
 
 .form-label {
     font-weight: 500;
+    color: var(--color-text-main);
 }
 
-.form-control, .form-select {
-    border-radius: 0.5rem; /* Bordas mais arredondadas para os campos */
-    padding: 0.75rem 1rem;
+/* Footer */
+footer {
+    background-color: var(--color-light-cards); /* Um pouco mais escuro que a base */
+    border-top: 2px solid var(--color-primary);
 }
 
-.form-control:focus, .form-select:focus {
-    border-color: #E6A4B4; /* Cor da borda ao focar */
-    box-shadow: 0 0 0 0.25rem rgba(230, 164, 180, 0.25); /* Sombra ao focar */
+footer h5 {
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-/* Rodapé */
-footer a.text-white:hover {
-    color: #E6A4B4 !important; /* Cor de destaque ao passar o mouse nos ícones sociais */
+footer .footer-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-/* Classes de utilidade */
-.rounded-3 {
-    border-radius: 0.75rem !important;
-}
-.rounded-pill {
-    border-radius: 50rem !important;
+footer .footer-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
 }
 
-/* Responsividade */
+footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+footer .bi { /* Estilos para ícones do Bootstrap no footer */
+    color: var(--color-primary);
+}
+
+/* Utilitários */
+.section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.img-placeholder-elegant {
+    filter: grayscale(30%) sepia(20%); /* Efeito sutil para placeholders */
+    border: 1px solid var(--color-secondary-highlight);
+}
+
+/* Responsividade Adicional (Bootstrap já cuida de muito) */
 @media (max-width: 768px) {
-    .hero-section {
-        min-height: 40vh;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+    .navbar-nav .nav-link {
+        padding: 0.7rem 0.5rem; /* Menor padding em telas pequenas */
     }
-    .hero-section h1 {
-        font-size: 2.5rem;
+    .section-padding {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
     }
-    .hero-section p {
-        font-size: 1rem;
-    }
-    #produtos .col-md-6.col-lg-3 {
-        margin-bottom: 1.5rem; /* Espaçamento entre cards em telas menores */
-    }
-    #contactForm {
-        padding: 1.5rem !important;
-    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
 }
