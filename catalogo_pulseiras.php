@@ -3,12 +3,14 @@
 
     // Produtos fictícios para pulseiras
     $produtos_pulseiras = [
-        ["id" => 13, "nome" => "Pulseira Riviera Fina", "preco" => "159,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Pulseira+Riviera", "descricao" => "Um clássico de brilho e sofisticação para seu pulso."],
-        ["id" => 14, "nome" => "Pulseira Berloques Temática", "preco" => "189,50", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Pulseira+Berloques", "descricao" => "Conte sua história com nossos berloques exclusivos."],
-        ["id" => 15, "nome" => "Bracelete Liso Moderno", "preco" => "129,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Bracelete+Liso", "descricao" => "Design minimalista e elegante para o dia a dia."],
-        ["id" => 16, "nome" => "Pulseira Olho Grego Proteção", "preco" => "75,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Pulseira+Olho+Grego", "descricao" => "Amuleto de sorte e proteção com muito estilo."],
-        ["id" => 17, "nome" => "Pulseira Infantil Delicada", "preco" => "99,90", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Pulseira+Infantil", "descricao" => "Fofura e delicadeza para as pequenas princesas."],
-        ["id" => 18, "nome" => "Mix de Pulseiras Boho", "preco" => "140,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Mix+Pulseiras", "descricao" => "Conjunto estiloso para um look despojado e moderno."],
+        ["id" => 17, "nome" => "Pulseira Riviera Fina", "preco" => "159,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Pulseira+Riviera", "descricao" => "Um clássico de brilho e sofisticação para seu pulso."],
+        ["id" => 18, "nome" => "Pulseira Berloques Temática", "preco" => "189,50", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Pulseira+Berloques", "descricao" => "Conte sua história com nossos berloques exclusivos."],
+        ["id" => 19, "nome" => "Bracelete Liso Moderno", "preco" => "129,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Bracelete+Liso", "descricao" => "Design minimalista e elegante para o dia a dia."],
+        ["id" => 20, "nome" => "Pulseira Olho Grego Proteção", "preco" => "75,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Pulseira+Olho+Grego", "descricao" => "Amuleto de sorte e proteção com muito estilo."],
+        ["id" => 21, "nome" => "Pulseira Infantil Delicada", "preco" => "99,90", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Pulseira+Infantil", "descricao" => "Fofura e delicadeza para as pequenas princesas."],
+        ["id" => 22, "nome" => "Mix de Pulseiras Boho", "preco" => "140,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Mix+Pulseiras", "descricao" => "Conjunto estiloso para um look despojado e moderno."],
+        ["id" => 23, "nome" => "Pulseira Masculina Couro", "preco" => "110,00", "imagem" => "https://placehold.co/300x300/E1E8FD/444?text=Pulseira+Couro", "descricao" => "Estilo robusto e moderno para homens de atitude."],
+        ["id" => 24, "nome" => "Pulseira Pérolas Clássica", "preco" => "170,00", "imagem" => "https://placehold.co/300x300/FDF8E1/888?text=Pulseira+Pérolas", "descricao" => "Elegância atemporal com pérolas delicadas."],
     ];
 ?>
 
