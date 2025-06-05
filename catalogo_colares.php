@@ -3,14 +3,14 @@
 
     // Produtos fictícios para colares
     $produtos_colares = [
-        ["id" => 9, "nome" => "Colar Ponto de Luz", "preco" => "89,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Ponto+Luz", "descricao" => "Delicado e brilhante, perfeito para o dia a dia."],
-        ["id" => 10, "nome" => "Colar Gravatinha Elegante", "preco" => "149,50", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Gravatinha", "descricao" => "Um toque de sofisticação e modernidade para seu decote."],
-        ["id" => 11, "nome" => "Choker Riviera Zircônias", "preco" => "199,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Choker+Riviera", "descricao" => "Brilho intenso e glamour para ocasiões especiais."],
-        ["id" => 12, "nome" => "Colar Longo com Pingentes", "preco" => "115,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Longo", "descricao" => "Versátil e estiloso, ideal para compor mixes de colares."],
-        ["id" => 13, "nome" => "Colar Medalha Personalizável", "preco" => "169,90", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Medalha", "descricao" => "Uma peça única com significado especial para você."],
-        ["id" => 14, "nome" => "Colar Corrente Grossa", "preco" => "130,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Colar+Corrente", "descricao" => "Moderno e imponente, para um visual cheio de atitude."],
-        ["id" => 15, "nome" => "Colar Coração Vazado", "preco" => "99,90", "imagem" => "https://placehold.co/300x300/FDF8E1/888?text=Colar+Cora%C3%A7%C3%A3o", "descricao" => "Romântico e delicado, perfeito para presentear alguém especial."],
-        ["id" => 16, "nome" => "Colar Pérola Clássica", "preco" => "120,00", "imagem" => "https://placehold.co/300x300/FCEFB4/444?text=Colar+P%C3%A9rola", "descricao" => "Elegância atemporal com pérola sintética de alta qualidade."],
+        ["id" => 9, "nome" => "Chocker Heart Cristal", "preco" => "89,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Ponto+Luz", "descricao" => "Delicado e brilhante, perfeito para o dia a dia."],
+        ["id" => 10, "nome" => "Chocker Pingente Coração", "preco" => "149,50", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Gravatinha", "descricao" => "Um toque de sofisticação e modernidade para seu decote."],
+        ["id" => 11, "nome" => "Chocker Riveira Baguete 40cm Fecho Gaveta", "preco" => "199,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Choker+Riviera", "descricao" => "Brilho intenso e glamour para ocasiões especiais."],
+        ["id" => 12, "nome" => "Colar Árvore Zircônias na Mandala", "preco" => "115,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Longo", "descricao" => "Versátil e estiloso, ideal para compor mixes de colares."],
+        ["id" => 13, "nome" => "Colar Ponto de Luz Zircônia Redonda", "preco" => "169,90", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Medalha", "descricao" => "Uma peça única com significado especial para você."],
+        ["id" => 14, "nome" => "Gargantilha Círculo Cravejado Zircônia", "preco" => "130,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Colar+Corrente", "descricao" => "Moderno e imponente, para um visual cheio de atitude."],
+        ["id" => 15, "nome" => "Gargantilha Coração Pedra Esmeralda", "preco" => "99,90", "imagem" => "https://placehold.co/300x300/FDF8E1/888?text=Colar+Cora%C3%A7%C3%A3o", "descricao" => "Romântico e delicado, perfeito para presentear alguém especial."],
+        ["id" => 16, "nome" => "Gargantilha Flor Cravejada", "preco" => "120,00", "imagem" => "https://placehold.co/300x300/FCEFB4/444?text=Colar+P%C3%A9rola", "descricao" => "Elegância atemporal com pérola sintética de alta qualidade."],
     ];
 ?>
 
