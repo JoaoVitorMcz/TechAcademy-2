@@ -1,5 +1,4 @@
 <?php
-    // Inclui o cabeçalho comum a todas as páginas
     include 'includes/header.php';
 ?>
 
@@ -44,7 +43,7 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow">
-                    <img src="https://placehold.co/400x300/FCEFB4/333?text=Anel+Dourado+Radiante" class="card-img-top img-placeholder-elegant" alt="Anel Dourado Radiante">
+                    <img src="img/Anel Cristal Triangular Zircônias Laterais.jpg" class="card-img-top img-placeholder-elegant" alt="Anel Dourado Radiante">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Anéis Deslumbrantes</h5>
                         <p class="card-text text-secondary-text">Descubra nossa coleção de anéis, perfeitos para todas as ocasiões.</p>
@@ -107,6 +106,5 @@
 
 
 <?php
-    // Inclui o rodapé comum a todas as páginas
     include 'includes/footer.php';
 ?>
