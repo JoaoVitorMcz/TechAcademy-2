@@ -8,9 +8,9 @@
         ["id" => 3, "nome" => "Anel Chuveirinho Cravejado Zircônias", "preco" => "135,00", "imagem" => "img/Anel Chuveirinho Cravejado Zircônias.jpg", "descricao" => "Romântico e moderno, um toque de amor em seus dedos."],
         ["id" => 4, "nome" => "Anel Cristal Triangular Zircônias Laterais", "preco" => "387,00", "imagem" => "img/Anel Cristal Triangular Zircônias Laterais.jpg", "descricao" => "Estilo e atitude para um look contemporâneo."],
         ["id" => 5, "nome" => "Anel Dedinho Coração Liso Falange", "preco" => "177,00", "imagem" => "img/Anel Dedinho Coração Liso Falange.jpg", "descricao" => "Cor intensa e vibrante para um visual marcante."],
-        ["id" => 6, "nome" => "Anel Meio Torcido Redondo", "preco" => "99,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Anel+Folhas", "descricao" => "Design inspirado na natureza, ajustável e confortável."],
-        ["id" => 7, "nome" => "Anel Orgânico com Pérola Regulável", "preco" => "219,00", "imagem" => "https://placehold.co/300x300/FDF8E1/888?text=Anel+Solitário", "descricao" => "Elegância e sofisticação em um design tradicional."],
-        ["id" => 8, "nome" => "Anel Solitário Master Zircônia Grande", "preco" => "129,00", "imagem" => "https://placehold.co/300x300/FCEFB4/444?text=Anel+Geométrico", "descricao" => "Para quem ama linhas limpas e estilo moderno."]
+        ["id" => 6, "nome" => "Anel Super Bubble Regulável  ", "preco" => "297,00", "imagem" => "img/Anel Super Bubble Regulável.jpg", "descricao" => "Design inspirado na natureza, ajustável e confortável."],
+        ["id" => 7, "nome" => "Anel Orgânico com Pérola Regulável", "preco" => "219,00", "imagem" => "img/Anel Orgânico com Pérola Regulável.jpg", "descricao" => "Elegância e sofisticação em um design tradicional."],
+        ["id" => 8, "nome" => "Anel Solitário Master Zircônia Grande", "preco" => "129,00", "imagem" => "img/Anel Solitário Master Zircônia Grande.jpg", "descricao" => "Para quem ama linhas limpas e estilo moderno."]
     ];
 ?>
 
