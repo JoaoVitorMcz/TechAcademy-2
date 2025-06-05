@@ -3,9 +3,9 @@
 
     // Produtos fictícios para colares
     $produtos_colares = [
-        ["id" => 9, "nome" => "Chocker Heart Cristal", "preco" => "399,00", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Ponto+Luz", "descricao" => "Delicado e brilhante, perfeito para o dia a dia."],
-        ["id" => 10, "nome" => "Chocker Pingente Coração", "preco" => "207,00", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Gravatinha", "descricao" => "Um toque de sofisticação e modernidade para seu decote."],
-        ["id" => 11, "nome" => "Chocker Riveira Baguete 40cm Fecho Gaveta", "preco" => "429,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Choker+Riviera", "descricao" => "Brilho intenso e glamour para ocasiões especiais."],
+        ["id" => 9, "nome" => "Chocker Heart Cristal", "preco" => "399,00", "imagem" => "img/Chocker Heart Cristal.png", "descricao" => "Delicado e brilhante, perfeito para o dia a dia."],
+        ["id" => 10, "nome" => "Chocker Pingente Coração", "preco" => "207,00", "imagem" => "img/Chocker Pingente Coração.jpg", "descricao" => "Um toque de sofisticação e modernidade para seu decote."],
+        ["id" => 11, "nome" => "Chocker Rivieira Baguete 40cm Fecho Gaveta", "preco" => "429,00", "imagem" => "img/Chocker Rivieira Baguete 40cm Fecho Gaveta.jpg", "descricao" => "Brilho intenso e glamour para ocasiões especiais."],
         ["id" => 12, "nome" => "Colar Árvore Zircônias na Mandala", "preco" => "189,90", "imagem" => "https://placehold.co/300x300/FDF8E1/777?text=Colar+Longo", "descricao" => "Versátil e estiloso, ideal para compor mixes de colares."],
         ["id" => 13, "nome" => "Colar Ponto de Luz Zircônia Redonda", "preco" => "117,90", "imagem" => "https://placehold.co/300x300/FCEFB4/666?text=Colar+Medalha", "descricao" => "Uma peça única com significado especial para você."],
         ["id" => 14, "nome" => "Gargantilha Círculo Cravejado Zircônia", "preco" => "177,00", "imagem" => "https://placehold.co/300x300/FAE588/555?text=Colar+Corrente", "descricao" => "Moderno e imponente, para um visual cheio de atitude."],
