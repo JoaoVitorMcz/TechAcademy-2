@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow">
-                    <img src="https://placehold.co/400x300/FDF8E1/4A4A4A?text=Colar+Elegância+Sutil" class="card-img-top img-placeholder-elegant" alt="Colar Elegância Sutil">
+                    <img src="img/Gargantilha Círculo Cravejado Zircônias.jpg" class="card-img-top img-placeholder-elegant" alt="Colar Elegância Sutil">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Colares Elegantes</h5>
                         <p class="card-text text-secondary-text">Colares que adicionam um toque de sofisticação ao seu visual.</p>
