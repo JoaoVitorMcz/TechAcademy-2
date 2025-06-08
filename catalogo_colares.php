@@ -32,7 +32,7 @@
                     <p class="card-text text-secondary-text small flex-grow-1"><?php echo htmlspecialchars($produto['descricao']); ?></p>
                     <p class="card-text fs-5 fw-bold text-main-text mb-3">R$ <?php echo htmlspecialchars($produto['preco']); ?></p>
                      <div class="mt-auto">
-                        <a href="#" class="btn btn-primary w-100 mb-2">Comprar</a>
+                        <a href="https://wa.me/5544999692011?text=Olá%2C%20tenho%20interesse%20em%20comprar%20uma%20semijoia." class="btn btn-primary w-100 mb-2">Comprar</a>
                     </div>
                 </div>
             </div>
