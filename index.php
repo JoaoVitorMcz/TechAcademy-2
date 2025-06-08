@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-md-12 col-lg-4"> <div class="card h-100 shadow">
-                    <img src="https://placehold.co/400x300/FAE588/333?text=Pulseira+Charme+Delicado" class="card-img-top img-placeholder-elegant" alt="Pulseira Charme Delicado">
+                    <img src="img/Pulseira Dupla Corações Pérolas e Vazados.jpg" class="card-img-top img-placeholder-elegant" alt="Pulseira Charme Delicado">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Pulseiras Charmosas</h5>
                         <p class="card-text text-secondary-text">Complete seu estilo com nossas pulseiras delicadas e modernas.</p>

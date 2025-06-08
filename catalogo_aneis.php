@@ -32,10 +32,7 @@
                     <p class="card-text text-secondary-text small flex-grow-1"><?php echo htmlspecialchars($produto['descricao']); ?></p>
                     <p class="card-text fs-5 fw-bold text-main-text mb-3">R$ <?php echo htmlspecialchars($produto['preco']); ?></p>
                     <div class="mt-auto">
-                        <a href="#" class="btn btn-primary w-100 mb-2">Ver Detalhes</a>
-                        <button type="button" class="btn btn-outline-primary w-100" style="--bs-btn-border-color: var(--color-primary); --bs-btn-hover-bg: var(--color-primary); --bs-btn-hover-border-color: var(--color-primary); --bs-btn-active-bg: var(--color-primary); --bs-btn-active-border-color: var(--color-primary); --bs-btn-color: var(--color-primary); --bs-btn-hover-color: var(--color-text-main);">
-                            <i class="bi bi-cart-plus-fill me-2"></i>Adicionar ao Carrinho
-                        </button>
+                        <a href="#" class="btn btn-primary w-100 mb-2">Comprar</a>
                     </div>
                 </div>
             </div>
