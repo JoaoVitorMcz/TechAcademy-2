@@ -14,7 +14,7 @@
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Principais Escolhas</h5>
                     <p class="text-white-50">Peças deslumbrantes para iluminar seus dias.</p>
-                    <a href="catalogo_colares.php" class="btn btn-primary">Descubra Nossas Novidades</a>
+                    <a href="catalogo_todos.php" class="btn btn-primary">Descubra Nossas Novidades</a>
                 </div>
             </div>
             <div class="carousel-item">
