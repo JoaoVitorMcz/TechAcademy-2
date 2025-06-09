@@ -35,14 +35,9 @@
 
         if (empty($erros)) {
             // Simulação de envio de email (neste protótipo, apenas exibimos sucesso)
-            // Em um cenário real, aqui você implementaria o envio do email com PHPMailer ou mail()
-
             $mensagem_status = "Sucesso!";
             $mensagem_texto = "Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.";
             $tipo_alerta = "success";
-
-            // Limpar os campos do POST para evitar re-submissão ou limpar o formulário (opcional)
-            // unset($_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['assunto'], $_POST['mensagem']);
         } else {
             $mensagem_status = "Erro ao enviar!";
             $mensagem_texto = "Por favor, corrija os seguintes erros:<br>" . implode("<br>", $erros);
@@ -60,12 +55,13 @@
     </div>
 
     <div class="row gy-5">
-        <div class="col-lg-7">
+        <!-- Coluna do formulário agora ocupa mais espaço em telas grandes -->
+        <div class="col-lg-15">
             <h2 class="h4 mb-4">Envie-nos uma Mensagem</h2>
 
             <?php if (!empty($mensagem_status)): ?>
                 <div class="alert alert-<?php echo $tipo_alerta; ?> alert-dismissible fade show" role="alert">
-                    <strong><?php echo htmlspecialchars($mensagem_status); ?></strong> <?php echo $mensagem_texto; // Não escapar HTML aqui pois pode conter <br> ?>
+                    <strong><?php echo htmlspecialchars($mensagem_status); ?></strong> <?php echo $mensagem_texto; ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
@@ -100,8 +96,7 @@
                 <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
             </form>
         </div>
-
-        
+           
         </div>
     </div>
 </div>
