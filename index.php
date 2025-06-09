@@ -97,10 +97,9 @@
 
 <section class="cta section-padding">
     <div class="container text-center">
-        <h2 class="mb-3">Pronta para Brilhar?</h2>
-        <p class="lead text-secondary-text mb-4">Explore nossas coleções e encontre a semijoia perfeita para você.</p>
-        <a href="catalogo_aneis.php" class="btn btn-primary btn-lg me-2 mb-2 mb-md-0">Ver Todas as Coleções</a>
-        <a href="contato.php" class="btn btn-outline-primary btn-lg mb-2 mb-md-0" style="--bs-btn-border-color: var(--color-primary); --bs-btn-hover-bg: var(--color-primary); --bs-btn-hover-border-color: var(--color-primary); --bs-btn-active-bg: var(--color-primary); --bs-btn-active-border-color: var(--color-primary); --bs-btn-color: var(--color-primary); --bs-btn-hover-color: var(--color-text-main);">Fale Conosco</a>
+        <h2 class="mb-3">Quer Algo Único?</h2>
+        <p class="lead text-secondary-text mb-4">Crie uma semijoia com a sua personalidade. Personalize e brilhe do seu jeito.</p>
+        <a href="https://wa.me/5544999692011?text=Olá%2C%20tenho%20interesse%20em%20joias%20personalizadas.%20Gostaria%20de%20saber%20mais%20detalhes." target="_blank" class="btn btn-primary btn-lg me-2 mb-2 mb-md-0">Criar Minha Peça Exclusiva</a>
     </div>
 </section>
 

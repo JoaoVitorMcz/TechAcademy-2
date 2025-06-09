@@ -21,7 +21,7 @@
                     <h5>Contato</h5>
                     <ul class="list-unstyled text-secondary-text small">
                         <li><i class="bi bi-telephone-fill me-2"></i>Telefone: (44) 99969-2011</li>
-                        <li><i class="bi bi-envelope-fill me-2"></i>Email: contato@nomedaloja.com.br</li>
+                        <li><i class="bi bi-envelope-fill me-2"></i>Email: barabaraelania@yahoo.com.br</li>
                         <li><i class="bi bi-geo-alt-fill me-2"></i>Endereço Fictício, 123, Campo Mourão, PR</li>
                     </ul>
                 </div>
