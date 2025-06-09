@@ -1,7 +1,6 @@
 <?php
     include 'includes/header.php';
 
-    // Produtos fictícios para pulseiras
     $produtos_pulseiras = [
         ["id" => 17, "nome" => "Pulseira Cordão Baiano Torcido", "preco" => "135,00", "imagem" => "img/Pulseira 18cm Cordão Baiano 2.0 Torcido.png", "descricao" => "Um clássico de brilho e sofisticação para seu pulso."],
         ["id" => 18, "nome" => "Pulseira de Flor", "preco" => "168,00", "imagem" => "img/Pulseira de Flor.jpg", "descricao" => "Conte sua história com nossos berloques exclusivos."],

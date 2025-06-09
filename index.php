@@ -10,7 +10,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://placehold.co/1920x600/FAE588/333?text=Coleção+Exclusiva+Verão" class="d-block w-100 img-placeholder-elegant" alt="Banner Coleção Exclusiva Verão" style="object-fit: cover; max-height: 600px;">
+                <img src="https://placehold.co/1920x600/FAE588/333?text=Coleção+Exclusiva" class="d-block w-100 img-placeholder-elegant" alt="Banner Coleção Exclusiva" style="object-fit: cover; max-height: 600px;">
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Principais Escolhas</h5>
                     <p class="text-white-50">Peças deslumbrantes para iluminar seus dias.</p>
