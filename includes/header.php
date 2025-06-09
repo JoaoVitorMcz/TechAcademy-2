@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="icon" href="https://placehold.co/32x32/F9DC5C/333?text=SJ" type="image/png">
+    <link rel="icon" href="img/IconeLoja.png" type="image/png">
 </head>
 <body class="bg-base">
 
@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-very-light-clear">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
-                    <img src="https://placehold.co/150x50/F9DC5C/333?text=Logo+Joias" alt="Logo Nome da Loja de Semijoias" class="img-fluid" style="max-height: 50px;">
+                    <img src="https://placehold.co/150x50/F9DC5C/333?text=Belle+Joias" alt="Logo Nome da Loja de Semijoias" class="img-fluid" style="max-height: 50px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,6 +40,7 @@
                                 Catálogos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCatalogos">
+                                 <li><a class="dropdown-item" href="catalogo_todos.php">Todos</a></li>
                                 <li><a class="dropdown-item" href="catalogo_aneis.php">Anéis</a></li>
                                 <li><a class="dropdown-item" href="catalogo_colares.php">Colares</a></li>
                                 <li><a class="dropdown-item" href="catalogo_pulseiras.php">Pulseiras</a></li>
