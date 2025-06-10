@@ -20,50 +20,6 @@
             <p class="text-secondary-text">Acreditamos que cada acessório tem o poder de expressar a individualidade e elevar a autoestima. Por isso, nossa curadoria é rigorosa, selecionando apenas materiais nobres e designs que seguem as últimas tendências, sem abrir mão da atemporalidade.</p>
         </div>
     </div>
-
-    <div class="row gy-4">
-        <div class="col-md-4">
-            <div class="card h-100 text-center p-4 bg-light-cards">
-                <div class="card-body">
-                    <i class="bi bi-gem fs-1 text-primary mb-3"></i>
-                    <h3 class="card-title h5">Missão</h3>
-                    <p class="card-text text-secondary-text small">Oferecer semijoias de alta qualidade com design exclusivo, proporcionando elegância, sofisticação e autoestima aos nossos clientes, transformando momentos comuns em ocasiões especiais.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 text-center p-4 bg-light-cards">
-                <div class="card-body">
-                    <i class="bi bi-eye-fill fs-1 text-primary mb-3"></i>
-                    <h3 class="card-title h5">Visão</h3>
-                    <p class="card-text text-secondary-text small">Ser referência no mercado de semijoias, reconhecida pela excelência em qualidade, inovação no design, e por construir relacionamentos de confiança e encantamento com nossos clientes.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 text-center p-4 bg-light-cards">
-                <div class="card-body">
-                    <i class="bi bi-heart-fill fs-1 text-primary mb-3"></i>
-                    <h3 class="card-title h5">Valores</h3>
-                    <p class="card-text text-secondary-text small">
-                        <strong>Qualidade:</strong> Compromisso com materiais e acabamentos superiores.<br>
-                        <strong>Design:</strong> Paixão pela inovação e beleza.<br>
-                        <strong>Cliente:</strong> Foco na satisfação e encantamento.<br>
-                        <strong>Ética:</strong> Transparência e respeito em todas as relações.<br>
-                        <strong>Paixão:</strong> Dedicação em cada detalhe.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5 justify-content-center">
-        <div class="col-lg-8 text-center">
-            <h2>Venha nos Visitar (Figurativo)</h2>
-            <p class="text-secondary-text">Embora sejamos uma loja online, nosso carinho e dedicação são reais. Sinta-se em casa ao navegar por nossas coleções!</p>
-            <img src="https://placehold.co/700x300/FAE588/4A4A4A?text=Ambiente+Aconchegante+da+Marca" class="img-fluid rounded shadow mt-3 img-placeholder-elegant" alt="Ambiente da marca">
-        </div>
-    </div>
 </div>
 
 <?php
