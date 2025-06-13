@@ -29,6 +29,9 @@
         if (empty($telefone)) { // Considerando telefone como obrigatório
             $erros[] = "O campo Telefone é obrigatório.";
         }
+         if (empty($assunto)) { // Considerando assunto como obrigatório
+            $erros[] = "O campo Assunto  é obrigatório.";
+        }
         if (empty($mensagem_usuario)) {
             $erros[] = "O campo Mensagem é obrigatório.";
         }
@@ -85,7 +88,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="assunto" class="form-label">Assunto</label>
+                    <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="assunto" name="assunto" value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
                 </div>
                 <div class="mb-3">
