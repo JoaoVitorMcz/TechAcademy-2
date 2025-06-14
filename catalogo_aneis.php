@@ -25,7 +25,7 @@
     <div class="row g-4">
         <?php foreach ($produtos_aneis as $produto): ?>
         <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card h-100 shadow-sm product-card">
+            <div class="card h-100 shadow-sm product-card bg-white">
                 <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" class="card-img-top img-placeholder-elegant" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title"><?php echo htmlspecialchars($produto['nome']); ?></h5>
