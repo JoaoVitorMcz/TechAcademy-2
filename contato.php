@@ -14,6 +14,7 @@
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
         $assunto = filter_input(INPUT_POST, 'assunto', FILTER_SANITIZE_STRING);
+        $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
         $mensagem_usuario = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
 
         // Validação dos campos
@@ -29,8 +30,11 @@
         if (empty($telefone)) { // Considerando telefone como obrigatório
             $erros[] = "O campo Telefone é obrigatório.";
         }
-         if (empty($assunto)) { // Considerando assunto como obrigatório
+        if (empty($assunto)) { // Considerando assunto como obrigatório
             $erros[] = "O campo Assunto  é obrigatório.";
+        }
+        if (empty($genero)) {
+        $erros[] = "O campo Gênero é obrigatório.";
         }
         if (empty($mensagem_usuario)) {
             $erros[] = "O campo Mensagem é obrigatório.";
@@ -91,6 +95,18 @@
                     <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="assunto" name="assunto" value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
                 </div>
+                <div class="mb-3">
+ <label class="form-label">Gênero <span class="text-danger">*</span></label>
+ <div class="form-check">
+ <input class="form-check-input" type="radio" name="genero" id="generoMasculino" value="masculino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'masculino' ? 'checked' : ''; ?> required>
+ <label class="form-check-label" for="generoMasculino">Masculino</label>
+ </div>
+ <div class="form-check">
+ <input class="form-check-input" type="radio" name="genero" id="generoFeminino" value="feminino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'feminino' ? 'checked' : ''; ?> required>
+ <label class="form-check-label" for="generoFeminino">Feminino</label>
+ </div>
+ <div class="invalid-feedback" id="generoFeedback"></div>
+ </div>
                 <div class="mb-3">
                     <label for="mensagem" class="form-label">Mensagem <span class="text-danger">*</span></label>
                     <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required><?php echo isset($_POST['mensagem']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['mensagem']) : ''; ?></textarea>
