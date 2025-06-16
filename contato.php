@@ -99,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3">
                     <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="assunto" name="assunto" value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
+                    <div class="invalid-feedback" id="assuntoFeedback"></div>
                 </div>
                 <div class="mb-3">
  <label class="form-label">Gênero <span class="text-danger">*</span></label>
