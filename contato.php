@@ -97,22 +97,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="assunto" name="assunto" value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
-                    <div class="invalid-feedback" id="assuntoFeedback"></div>
-                </div>
-                <div class="mb-3">
  <label class="form-label">Gênero <span class="text-danger">*</span></label>
  <div class="form-check">
- <input class="form-check-input" type="radio" name="genero" id="generoMasculino" value="masculino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'masculino' ? 'checked' : ''; ?> required>
+ <input class="form-check-input" type="radio" name="genero" id="generoMasculino" required value="masculino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'masculino' ? 'checked' : ''; ?> required>
  <label class="form-check-label" for="generoMasculino">Masculino</label>
  </div>
  <div class="form-check">
- <input class="form-check-input" type="radio" name="genero" id="generoFeminino" value="feminino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'feminino' ? 'checked' : ''; ?> required>
+ <input class="form-check-input" type="radio" name="genero" id="generoFeminino" required value="feminino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'feminino' ? 'checked' : ''; ?> required>
  <label class="form-check-label" for="generoFeminino">Feminino</label>
  </div>
  <div class="invalid-feedback" id="generoFeedback"></div>
  </div>
+                <div class="mb-3">
+                    <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="assunto" name="assunto" required value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
+                    <div class="invalid-feedback" id="assuntoFeedback"></div>
+                </div>
                 <div class="mb-3">
                     <label for="mensagem" class="form-label">Mensagem <span class="text-danger">*</span></label>
                     <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required><?php echo isset($_POST['mensagem']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['mensagem']) : ''; ?></textarea>
