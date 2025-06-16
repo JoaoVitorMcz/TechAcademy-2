@@ -38,17 +38,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const nomeFeedback = document.querySelector('#nomeFeedback');
             const emailFeedback = document.querySelector('#emailFeedback');
             const telefoneFeedback = document.querySelector('#telefoneFeedback');
-            const assuntoFeedback = document.querySelector('#assuntoFeedback');
             const mensagemFeedback = document.querySelector('#mensagemFeedback');
-            const generoFeedback = document.querySelector('#generoFeedback');
 
             // Limpa feedbacks anteriores e classes de inválido
             document.querySelectorAll('.form-control, .form-select').forEach(input => {
                 input.classList.remove('is-invalid');
             });
             document.querySelectorAll('.invalid-feedback').forEach(feedback => {
-                if (feedback) feedback.style.display = 'none';
+                if(feedback) feedback.style.display = 'none';
             });
+
 
             // Validação do Nome
             const nome = document.querySelector('#nome');
@@ -85,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Validação do Telefone
+            // Validação do Telefone (apenas se é obrigatório e se está vazio, a máscara já ajuda no formato)
             const telefone = document.querySelector('#telefone');
-            if (telefone && telefone.value.trim() === '') {
+            if (telefone && telefone.value.trim() === '') { // Considerando obrigatório
                 isValid = false;
                 telefone.classList.add('is-invalid');
                 if (telefoneFeedback) {
@@ -97,29 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!firstInvalidField) firstInvalidField = telefone;
             }
 
-            // Validação do Assunto
-            const assunto = document.querySelector('#assunto');
-            if (assunto && assunto.value.trim() === '') {
-                isValid = false;
-                assunto.classList.add('is-invalid');
-                if (assuntoFeedback) {
-                    assuntoFeedback.textContent = 'Por favor, informe o assunto.';
-                    assuntoFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = assunto;
-            }
-
-            // Validação do Gênero
-            const generoMasculino = document.querySelector('#generoMasculino');
-            const generoFeminino = document.querySelector('#generoFeminino');
-            if (!generoMasculino.checked && !generoFeminino.checked) {
-                isValid = false;
-                if (generoFeedback) {
-                    generoFeedback.textContent = 'Por favor, selecione seu gênero.';
-                    generoFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = generoMasculino;
-            }
 
             // Validação da Mensagem
             const mensagem = document.querySelector('#mensagem');
@@ -134,11 +110,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (!isValid) {
-                event.preventDefault();
+                event.preventDefault(); // Impede o envio do formulário PHP se a validação JS falhar
                 event.stopPropagation();
+                
+                // Foca no primeiro campo inválido para melhor UX
                 if (firstInvalidField) {
                     firstInvalidField.focus();
                 }
+                // Adiciona a classe 'was-validated' para mostrar os feedbacks do Bootstrap, se estiver usando-os nativamente
+                // contactForm.classList.add('was-validated'); // Descomente se for usar validação nativa do Bootstrap junto
+            } else {
+                // Se for válido, o formulário será enviado para o PHP.
+                // A mensagem de sucesso/erro do PHP será exibida na página após o reload.
+                // Para uma UX mais fluida sem reload, seria necessário AJAX, o que está fora do escopo de "PHP básico".
             }
         });
     }
@@ -151,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         const activeLink = document.querySelector(`.navbar-nav .nav-link[href="${currentPath}"]`);
         if (activeLink) {
-
+            
             document.querySelectorAll('.navbar-nav .nav-link.active').forEach(link => link.classList.remove('active'));
             activeLink.classList.add('active');
         }
@@ -159,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentPath.startsWith("catalogo_")) {
             const catalogosDropdown = document.querySelector('#navbarDropdownCatalogos');
             if (catalogosDropdown) {
-                // Remove 'active' de qualquer outro link que possa ter sido setado no HTML
+                 // Remove 'active' de qualquer outro link que possa ter sido setado no HTML
                 document.querySelectorAll('.navbar-nav .nav-link.active').forEach(link => link.classList.remove('active'));
                 catalogosDropdown.classList.add('active');
             }
@@ -196,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navLinks.forEach(l => l.classList.remove('active'));
             document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
         } else if (pageName.startsWith('catalogo_')) {
-            navLinks.forEach(l => l.classList.remove('active'));
+             navLinks.forEach(l => l.classList.remove('active'));
             document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
         }
     }
