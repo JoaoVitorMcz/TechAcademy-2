@@ -39,7 +39,7 @@
 
 <section class="destaques section-padding">
     <div class="container">
-        <h2 class="text-center mb-5">Nossos Destaques</h2>
+        <h2 class="text-center mb-5 display-6">Nossos Destaques</h2>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow">
@@ -81,7 +81,7 @@
                 <img src="https://placehold.co/500x350/F9DC5C/333?text=Nossa+Paixão+por+Joias" class="img-fluid rounded shadow-sm img-placeholder-elegant" alt="Imagem ilustrativa da marca">
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
-                <h2 class="mb-3">Conheça Nossa Essência</h2>
+                <h2 class="mb-3 display-6">Conheça Nossa Essência</h2>
                 <p class="text-secondary-text lead">
                     Na [Nome da Loja de Semijoias], acreditamos que cada peça conta uma história e reflete a beleza única de quem a usa.
                     Nossa paixão é criar e selecionar semijoias com design exclusivo, materiais de alta qualidade e um acabamento impecável.
@@ -97,7 +97,7 @@
 
 <section class="cta section-padding">
     <div class="container text-center">
-        <h2 class="mb-3">Quer Algo Único?</h2>
+        <h2 class="mb-3 display-6">Quer Algo Único?</h2>
         <p class="lead text-secondary-text mb-4">Crie uma semijoia com a sua personalidade. Personalize e brilhe do seu jeito.</p>
         <a href="https://wa.me/5544999692011?text=Olá%2C%20tenho%20interesse%20em%20joias%20personalizadas.%20Gostaria%20de%20saber%20mais%20detalhes." target="_blank" class="btn btn-primary btn-lg me-2 mb-2 mb-md-0">Criar Minha Peça Exclusiva</a>
     </div>
