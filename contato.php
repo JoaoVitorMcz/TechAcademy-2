@@ -8,49 +8,54 @@
     $tipo_alerta = ""; // 'success' ou 'danger' para classes do Bootstrap
 
     // Processamento do formulário de contato
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Sanitização básica dos inputs (importante para segurança)
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
-        $assunto = filter_input(INPUT_POST, 'assunto', FILTER_SANITIZE_STRING);
-        $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
-        $mensagem_usuario = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Captura e sanitiza os dados
+    $nome = isset($_POST['nome']) ? htmlspecialchars(trim($_POST['nome'])) : '';
+    $email = isset($_POST['email']) ? htmlspecialchars(trim($_POST['email'])) : '';
+    $telefone = isset($_POST['telefone']) ? htmlspecialchars(trim($_POST['telefone'])) : '';
+    $assunto = isset($_POST['assunto']) ? htmlspecialchars(trim($_POST['assunto'])) : '';
+    $genero = isset($_POST['genero']) ? htmlspecialchars($_POST['genero']) : '';
+    $mensagem_usuario = isset($_POST['mensagem']) ? htmlspecialchars(trim($_POST['mensagem'])) : '';
 
-        // Validação dos campos
-        $erros = [];
-        if (empty($nome)) {
-            $erros[] = "O campo Nome Completo é obrigatório.";
-        }
-        if (empty($email)) {
-            $erros[] = "O campo Email é obrigatório.";
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $erros[] = "O formato do Email é inválido.";
-        }
-        if (empty($telefone)) { // Considerando telefone como obrigatório
-            $erros[] = "O campo Telefone é obrigatório.";
-        }
-        if (empty($assunto)) { // Considerando assunto como obrigatório
-            $erros[] = "O campo Assunto  é obrigatório.";
-        }
-        if (empty($genero)) {
-        $erros[] = "O campo Gênero é obrigatório.";
-        }
-        if (empty($mensagem_usuario)) {
-            $erros[] = "O campo Mensagem é obrigatório.";
-        }
-
-        if (empty($erros)) {
-            // Simulação de envio de email (neste protótipo, apenas exibimos sucesso)
-            $mensagem_status = "Sucesso!";
-            $mensagem_texto = "Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.";
-            $tipo_alerta = "success";
-        } else {
-            $mensagem_status = "Erro ao enviar!";
-            $mensagem_texto = "Por favor, corrija os seguintes erros:<br>" . implode("<br>", $erros);
-            $tipo_alerta = "danger";
-        }
+    // Validação dos campos
+    $erros = [];
+    if (empty($nome)) {
+        $erros[] = "O campo Nome Completo é obrigatório.";
     }
+
+    if (empty($email)) {
+        $erros[] = "O campo Email é obrigatório.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erros[] = "O formato do Email é inválido.";
+    }
+
+    if (empty($telefone)) {
+        $erros[] = "O campo Telefone é obrigatório.";
+    }
+
+    if (empty($assunto)) {
+        $erros[] = "O campo Assunto é obrigatório.";
+    }
+
+    if (!in_array($genero, ['masculino', 'feminino'])) {
+        $erros[] = "O campo Gênero é obrigatório.";
+    }
+
+    if (empty($mensagem_usuario)) {
+        $erros[] = "O campo Mensagem é obrigatório.";
+    }
+
+    if (empty($erros)) {
+        // Simulação de envio de email
+        $mensagem_status = "Sucesso!";
+        $mensagem_texto = "Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.";
+        $tipo_alerta = "success";
+    } else {
+        $mensagem_status = "Erro ao enviar!";
+        $mensagem_texto = "Por favor, corrija os seguintes erros:<br>" . implode("<br>", $erros);
+        $tipo_alerta = "danger";
+    }
+}
 ?>
 
 <div class="container section-padding">
