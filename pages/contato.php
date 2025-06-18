@@ -1,11 +1,11 @@
 <?php
 
-    // Variáveis para armazenar mensagens de feedback do formulário
-    $mensagem_status = "";
-    $mensagem_texto = "";
-    $tipo_alerta = ""; // 'success' ou 'danger' para classes do Bootstrap
+// Variáveis para armazenar mensagens de feedback do formulário
+$mensagem_status = "";
+$mensagem_texto = "";
+$tipo_alerta = ""; // 'success' ou 'danger' para classes do Bootstrap
 
-    // Processamento do formulário de contato
+// Processamento do formulário de contato
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Captura e sanitiza os dados
     $nome = isset($_POST['nome']) ? htmlspecialchars(trim($_POST['nome'])) : '';
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             <?php endif; ?>
 
-            <form id="formContato" action="contato.php" method="POST" novalidate>
+            <form id="formContato" action="contato" method="POST" novalidate>
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome Completo <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nome" name="nome" required value="<?php echo isset($_POST['nome']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['nome']) : ''; ?>">
@@ -95,17 +95,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="mb-3">
- <label class="form-label">Gênero <span class="text-danger">*</span></label>
- <div class="form-check">
- <input class="form-check-input" type="radio" name="genero" id="generoMasculino" required value="masculino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'masculino' ? 'checked' : ''; ?> required>
- <label class="form-check-label" for="generoMasculino">Masculino</label>
- </div>
- <div class="form-check">
- <input class="form-check-input" type="radio" name="genero" id="generoFeminino" required value="feminino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'feminino' ? 'checked' : ''; ?> required>
- <label class="form-check-label" for="generoFeminino">Feminino</label>
- </div>
- <div class="invalid-feedback" id="generoFeedback"></div>
- </div>
+                    <label class="form-label">Gênero <span class="text-danger">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="generoMasculino" required value="masculino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'masculino' ? 'checked' : ''; ?> required>
+                        <label class="form-check-label" for="generoMasculino">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="generoFeminino" required value="feminino" <?php echo isset($_POST['genero']) && $_POST['genero'] === 'feminino' ? 'checked' : ''; ?> required>
+                        <label class="form-check-label" for="generoFeminino">Feminino</label>
+                    </div>
+                    <div class="invalid-feedback" id="generoFeedback"></div>
+                </div>
                 <div class="mb-3">
                     <label for="assunto" class="form-label">Assunto<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="assunto" name="assunto" required value="<?php echo isset($_POST['assunto']) && $tipo_alerta === 'danger' ? htmlspecialchars($_POST['assunto']) : ''; ?>">
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
             </form>
         </div>
-           
-        </div>
+
     </div>
+</div>
 </div>
