@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="img/Banner Aneis.jpeg" class="d-block w-100 img-placeholder-elegant" alt="Banner Elegância em Cada Detalhe" style="object-fit: cover; max-height: 600px;">
+                <img src="img/Banner Aneis (1).png" class="d-block w-100 img-placeholder-elegant" alt="Banner Elegância em Cada Detalhe" style="object-fit: cover; max-height: 600px;">
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Elegância em Cada Detalhe</h5>
                     <p class="text-white-50">Semijoias que transformam seu look.</p>
@@ -75,7 +75,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <img src="https://placehold.co/500x350/F9DC5C/333?text=Nossa+Paixão+por+Joias" class="img-fluid rounded shadow-sm img-placeholder-elegant" alt="Imagem ilustrativa da marca">
+                <img src="img/Sobre1_502x352.png" class="img-fluid rounded shadow-sm img-placeholder-elegant" alt="Imagem ilustrativa da marca">
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <h2 class="mb-3 display-6">Conheça Nossa Essência</h2>

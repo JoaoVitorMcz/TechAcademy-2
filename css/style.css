@@ -1,7 +1,5 @@
-/* Import Google Font - Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Definição das variáveis de cor */
 :root {
     --color-primary: #F9DC5C; /* Destaques Fortes */
     --color-secondary-highlight: #FAE588; /* Destaques Suaves */
@@ -23,7 +21,6 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Garante que o footer fique no final da página mesmo com pouco conteúdo */
 }
-
 main {
     flex-grow: 1; /* Faz o main ocupar o espaço restante */
 }

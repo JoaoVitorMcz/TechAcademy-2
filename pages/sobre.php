@@ -9,7 +9,7 @@
 
     <div class="row align-items-center mb-5 gy-4">
         <div class="col-lg-6">
-            <img src="https://placehold.co/800x500/FCEFB4/333?text=Nossa+Equipe+Criativa" class="img-fluid rounded shadow-lg img-placeholder-elegant" alt="Nossa Equipe ou Loja">
+            <img src="img/Sobre2_696x436.png" class="img-fluid rounded shadow-lg img-placeholder-elegant" alt="Nossa Equipe ou Loja">
         </div>
         <div class="col-lg-6">
             <h2 class="mb-3 display-6">Nossa História</h2>
