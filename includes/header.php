@@ -24,8 +24,8 @@
     <header class="sticky-top shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light bg-very-light-clear">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="https://placehold.co/150x50/F9DC5C/333?text=Belle+Joias" alt="Logo Nome da Loja de Semijoias" class="img-fluid" style="max-height: 50px;">
+                <a class="navbar-brand" href="home">
+                    <img src="img/LogoCM.png" alt="Logo Nome da Loja de Semijoias" class="img-fluid" style="max-height: 50px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,24 +33,24 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item me-3">
-                            <a class="nav-link active" aria-current="page" href="index.php">Início</a>
+                            <a class="nav-link active" aria-current="page" href="home">Início</a>
                         </li>
                         <li class="nav-item dropdown me-3">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCatalogos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Catálogos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCatalogos">
-                                <li><a class="dropdown-item" href="catalogo_todos.php">Todos</a></li>
-                                <li><a class="dropdown-item" href="catalogo_aneis.php">Anéis</a></li>
-                                <li><a class="dropdown-item" href="catalogo_colares.php">Colares</a></li>
-                                <li><a class="dropdown-item" href="catalogo_pulseiras.php">Pulseiras</a></li>
+                                <li><a class="dropdown-item" href="catalogo_todos">Todos</a></li>
+                                <li><a class="dropdown-item" href="catalogo_aneis">Anéis</a></li>
+                                <li><a class="dropdown-item" href="catalogo_colares">Colares</a></li>
+                                <li><a class="dropdown-item" href="catalogo_pulseiras">Pulseiras</a></li>
                             </ul>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link" href="sobre.php">Sobre Nós</a>
+                            <a class="nav-link" href="sobre">Sobre Nós</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link" href="contato.php">Contato</a>
+                            <a class="nav-link" href="contato">Contato</a>
                         </li>
                         <!--
                         <li class="nav-item">

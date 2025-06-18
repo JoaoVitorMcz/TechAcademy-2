@@ -1,6 +1,4 @@
 <?php
-    include 'includes/header.php';
-
     // Produtos fictícios para colares
     $produtos_colares = [
         ["id" => 9, "nome" => "Chocker Heart Cristal", "preco" => "399,00", "imagem" => "img/Chocker Heart Cristal.png", "descricao" => "Delicado e brilhante, perfeito para o dia a dia."],
@@ -40,7 +38,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-
-<?php
-    include 'includes/footer.php';
-?>

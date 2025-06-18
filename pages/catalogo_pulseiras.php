@@ -1,5 +1,4 @@
 <?php
-    include 'includes/header.php';
 
     $produtos_pulseiras = [
         ["id" => 17, "nome" => "Pulseira Cordão Baiano Torcido", "preco" => "135,00", "imagem" => "img/Pulseira 18cm Cordão Baiano 2.0 Torcido.png", "descricao" => "Um clássico de brilho e sofisticação para seu pulso."],
@@ -39,7 +38,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-
-<?php
-    include 'includes/footer.php';
-?>

@@ -8,7 +8,7 @@
     <img src="img/erro_404.jpg" alt="404">
 </p>
 <p class="text-center">
-    <a href="index" title="index" class="btn btn-primary">
+    <a href="home" title="home" class="btn btn-primary">
         Página Inicial
     </a>
 </p>

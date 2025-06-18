@@ -11,10 +11,10 @@
                 <div class="col-lg-2 col-md-6">
                     <h5>Links Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.php" class="footer-link">Início</a></li>
-                        <li><a href="catalogo_aneis.php" class="footer-link">Anéis</a></li>
-                        <li><a href="catalogo_colares.php" class="footer-link">Colares</a></li>
-                        <li><a href="catalogo_pulseiras.php" class="footer-link">Pulseiras</a></li>
+                        <li><a href="home" class="footer-link">Início</a></li>
+                        <li><a href="catalogo_aneis" class="footer-link">Anéis</a></li>
+                        <li><a href="catalogo_colares" class="footer-link">Colares</a></li>
+                        <li><a href="catalogo_pulseiras" class="footer-link">Pulseiras</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">

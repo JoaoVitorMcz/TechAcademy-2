@@ -1,6 +1,4 @@
 <?php
-    // Inclui o cabeçalho comum a todas as páginas
-    include 'includes/header.php';
 
     // Variáveis para armazenar mensagens de feedback do formulário
     $mensagem_status = "";
@@ -125,8 +123,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
-
-<?php
-    // Inclui o rodapé comum a todas as páginas
-    include 'includes/footer.php';
-?>

@@ -1,6 +1,4 @@
 <?php
-    include 'includes/header.php';
-
     // Produtos fictícios para anéis
     $produtos_aneis = [
         ["id" => 1, "nome" => "Anel Aparador Unitário Meia Aliança Zircônia ", "preco" => "129,00", "imagem" => "img\Anel Aparador Unitário Meia Aliança Zircônia.jpg", "descricao" => "Um clássico atemporal, perfeito para todas as ocasiões."],
@@ -40,7 +38,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-
-<?php
-    include 'includes/footer.php';
-?>

@@ -1,5 +1,4 @@
 <?php
-include 'includes/header.php';
 
 // Produtos fictícios para anéis
 $produtos_aneis = [
@@ -58,7 +57,3 @@ $produtos_aneis = [
         <?php endforeach; ?>
     </div>
 </div>
-
-<?php
-include 'includes/footer.php';
-?>
