@@ -80,11 +80,8 @@
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <h2 class="mb-3 display-6">Conheça Nossa Essência</h2>
                 <p class="text-secondary-text lead">
-                    Na [Nome da Loja de Semijoias], acreditamos que cada peça conta uma história e reflete a beleza única de quem a usa.
+                    Na Carina Melo, acreditamos que cada peça conta uma história e reflete a beleza única de quem a usa.
                     Nossa paixão é criar e selecionar semijoias com design exclusivo, materiais de alta qualidade e um acabamento impecável.
-                </p>
-                <p class="text-secondary-text">
-                    Desde [Ano de Fundação Fictício], buscamos oferecer mais do que acessórios: entregamos autoestima, elegância e momentos inesquecíveis.
                 </p>
                 <a href="sobre" class="btn btn-secondary">Saiba Mais Sobre Nós</a>
             </div>
