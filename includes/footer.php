@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row gy-3">
                 <div class="col-lg-4 col-md-6">
-                    <h5>Nome da Loja de Semijoias</h5>
+                    <h5>Carina Melo</h5>
                     <p class="text-secondary-text small">
                         Especialistas em semijoias de alta qualidade, design exclusivo e elegância para todos os momentos.
                         CNPJ Fictício: 00.000.000/0001-00
@@ -22,7 +22,7 @@
                     <ul class="list-unstyled text-secondary-text small">
                         <li><i class="bi bi-telephone-fill me-2"></i>Telefone: (44) 99969-2011</li>
                         <li><i class="bi bi-envelope-fill me-2"></i>Email: barabaraelania@yahoo.com.br</li>
-                        <li><i class="bi bi-geo-alt-fill me-2"></i>Endereço Fictício, 123, Campo Mourão, PR</li>
+                        <li><i class="bi bi-instagram me-2"></i>@CarinaMeloShop</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
