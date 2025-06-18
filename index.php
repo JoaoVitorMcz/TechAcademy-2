@@ -10,7 +10,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://placehold.co/1920x600/FAE588/333?text=Coleção+Exclusiva" class="d-block w-100 img-placeholder-elegant" alt="Banner Coleção Exclusiva" style="object-fit: cover; max-height: 600px;">
+                <img src="img/Banner Colecao.jpg" class="d-block w-100 img-placeholder-elegant" alt="Banner Coleção Exclusiva" style="object-fit: cover; max-height: 600px;">
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Principais Escolhas</h5>
                     <p class="text-white-50">Peças deslumbrantes para iluminar seus dias.</p>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://placehold.co/1920x600/FCEFB4/4A4A4A?text=Elegância+em+Cada+Detalhe" class="d-block w-100 img-placeholder-elegant" alt="Banner Elegância em Cada Detalhe" style="object-fit: cover; max-height: 600px;">
+                <img src="img/Banner Aneis.jpeg" class="d-block w-100 img-placeholder-elegant" alt="Banner Elegância em Cada Detalhe" style="object-fit: cover; max-height: 600px;">
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Elegância em Cada Detalhe</h5>
                     <p class="text-white-50">Semijoias que transformam seu look.</p>
