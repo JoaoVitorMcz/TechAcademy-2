@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --color-primary: #F9DC5C; /* Destaques Fortes */
+    --color-primary: #F9DC5C; /* Destaques */
     --color-secondary-highlight: #FAE588; /* Destaques Suaves */
     --color-light-background-cards: #FCEFB4; /* Fundos Claros/Cards */
     --color-very-light-background-base: #FDF8E1; /* Fundos Muito Claros/Base */
@@ -224,10 +224,10 @@ footer .bi { /* Estilos para ícones do Bootstrap no footer */
     border: 1px solid var(--color-secondary-highlight);
 }
 
-/* Responsividade Adicional (Bootstrap já cuida de muito) */
+
 @media (max-width: 768px) {
     .navbar-nav .nav-link {
-        padding: 0.7rem 0.5rem; /* Menor padding em telas pequenas */
+        padding: 0.7rem 0.5rem;  /* Menor padding em telas pequenas */
     }
     .section-padding {
         padding-top: 2.5rem;

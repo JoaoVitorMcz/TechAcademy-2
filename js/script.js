@@ -11,20 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // para trocar a máscara baseada no comprimento do input.
         // Por simplicidade, vamos usar a máscara mais comum (9 dígitos).
         VMasker(phoneInput).maskPattern('(99) 99999-9999');
-
-        // Uma abordagem alternativa para múltiplos padrões (mais complexa de gerenciar com VMasker puro):
-        // phoneInput.addEventListener('input', function(e) {
-        //     const value = e.target.value.replace(/\D/g, '');
-        //     if (value.length <= 10) {
-        //         VMasker(e.target).unMask();
-        //         VMasker(e.target).maskPattern('(99) 9999-9999');
-        //     } else {
-        //         VMasker(e.target).unMask();
-        //         VMasker(e.target).maskPattern('(99) 99999-9999');
-        //     }
-        //     // É preciso reaplicar o valor após mudar a máscara, o que pode ser tricky.
-        //     // A solução acima com uma única máscara é mais simples para o Vanilla Masker.
-        // }, false);
     }
 
     // Validação do formulário de contato (exemplo básico)
@@ -38,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const nomeFeedback = document.querySelector('#nomeFeedback');
             const emailFeedback = document.querySelector('#emailFeedback');
             const telefoneFeedback = document.querySelector('#telefoneFeedback');
+            const generoFeedback = document.querySelector('#generoFeedback');
             const assuntoFeedback = document.querySelector('#assuntoFeedback');
             const mensagemFeedback = document.querySelector('#mensagemFeedback');
 
@@ -96,8 +83,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (!firstInvalidField) firstInvalidField = telefone;
             }
-            // Validação do Assunto
-            const assunto = document.querySelector('#assunto');
+
+            // Validação do Gênero
+            const generos = document.querySelectorAll('input[name="genero"]');
+            const generoChecked = document.querySelector('input[name="genero"]:checked');
+            if (generos.length > 0) {
+                if (!generoChecked) {
+                    isValid = false;
+                    generos.forEach(radio => radio.classList.add('is-invalid'));
+                    if (generoFeedback) {
+                        generoFeedback.textContent = 'Por favor, selecione seu gênero.';
+                        generoFeedback.style.display = 'block';
+                    }
+                    if (!firstInvalidField) firstInvalidField = generos[0];
+                } else {
+                    generos.forEach(radio => radio.classList.remove('is-invalid'));
+                    if (generoFeedback) {
+                        generoFeedback.textContent = '';
+                        generoFeedback.style.display = 'none';
+                    }
+                }
+            }
+
+                // Validação do Assunto
+                const assunto = document.querySelector('#assunto');
             if (assunto && assunto.value.trim() === '') {
                 isValid = false;
                 assunto.classList.add('is-invalid');

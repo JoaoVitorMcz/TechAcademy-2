@@ -1,5 +1,4 @@
-
-<section class="banner-principal container-fluid p-0">
+<section class="banner-principal container-fluid p-0 d-none d-md-block">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
