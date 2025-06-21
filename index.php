@@ -1,4 +1,9 @@
 <?php
+    // Headers para instruir o navegador a não fazer cache da página HTML principal.
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP/1.1
+    header("Pragma: no-cache"); // HTTP/1.0
+    header("Expires: 0"); // Proxies
+        
     $base = "https://{$_SERVER['SERVER_NAME']}{$_SERVER['SCRIPT_NAME']}";
 
 ?>

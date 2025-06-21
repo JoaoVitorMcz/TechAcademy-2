@@ -45,7 +45,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.2.0/vanilla-masker.min.js"></script>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=<?php echo filemtime('js/script.js'); ?>"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </body>
