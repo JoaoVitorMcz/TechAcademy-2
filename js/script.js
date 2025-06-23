@@ -66,17 +66,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Validação do Telefone (apenas se é obrigatório e se está vazio, a máscara já ajuda no formato)
-            const telefone = document.querySelector('#telefone');
-            if (telefone && telefone.value.trim() === '') { // Considerando obrigatório
+           // Verifica se o campo está completamente preenchido
+        const telefone = document.querySelector('#telefone');
+        if (telefone) {
+            // Remove caracteres não numéricos para contar apenas os dígitos
+            const apenasDigitos = telefone.value.replace(/\D/g, '');
+
+            // Um telefone no Brasil tem 10 (fixo) ou 11 (celular com 9º dígito) números.
+            // A validação checa se a quantidade de dígitos é menor que 11.
+            if (apenasDigitos.length < 11) {
                 isValid = false;
                 telefone.classList.add('is-invalid');
                 if (telefoneFeedback) {
-                    telefoneFeedback.textContent = 'Por favor, informe seu telefone.';
+                    // Mostra uma mensagem diferente se o campo estiver vazio ou se estiver incompleto
+                    if (telefone.value.trim() === '') {
+                        telefoneFeedback.textContent = 'Por favor, informe seu telefone.';
+                    } else {
+                        telefoneFeedback.textContent = 'Por favor, preencha o telefone completo com DDD.';
+                    }
                     telefoneFeedback.style.display = 'block';
                 }
                 if (!firstInvalidField) firstInvalidField = telefone;
             }
+        }
 
             // Validação do Gênero
             const generos = document.querySelectorAll('input[name="genero"]');
