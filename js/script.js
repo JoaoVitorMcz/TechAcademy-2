@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicialização do Vanilla Masker para o campo de telefone
     const phoneInput = document.querySelector('input[type="tel"]#telefone'); // Seletor mais específico com ID
     if (phoneInput) {
-        // Tenta aplicar as máscaras. Começa com a de 9 dígitos.
-        // Se o usuário digitar menos, a máscara de 8 dígitos pode ser aplicada.
-        // Vanilla Masker não suporta múltiplos padrões de forma dinâmica como o jQuery Mask Plugin.
-        // Para uma solução mais robusta com Vanilla Masker, você pode precisar de lógica adicional
-        // para trocar a máscara baseada no comprimento do input.
-        // Por simplicidade, vamos usar a máscara mais comum (9 dígitos).
         VMasker(phoneInput).maskPattern('(99) 99999-9999');
     }
 
@@ -133,22 +127,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 event.preventDefault(); // Impede o envio do formulário PHP se a validação JS falhar
                 event.stopPropagation();
 
-                // Foca no primeiro campo inválido para melhor UX
                 if (firstInvalidField) {
                     firstInvalidField.focus();
                 }
-                // Adiciona a classe 'was-validated' para mostrar os feedbacks do Bootstrap, se estiver usando-os nativamente
-                // contactForm.classList.add('was-validated'); // Descomente se for usar validação nativa do Bootstrap junto
             } else {
                 // Se for válido, o formulário será enviado para o PHP.
                 // A mensagem de sucesso/erro do PHP será exibida na página após o reload.
-                // Para uma UX mais fluida sem reload, seria necessário AJAX, o que está fora do escopo de "PHP básico".
             }
         });
     }
 
     // Ativar active state para links de navegação baseado na URL atual
-    // Isso é mais robusto que apenas 'active' no HTML, especialmente com includes PHP
     const currentPath = window.location.pathname.split("/").pop();
     if (currentPath === "") { // Para o caso de index.php ser a raiz
         document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
@@ -204,12 +193,5 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
         }
     }
-
-
-    // Tooltips do Bootstrap (se for usar)
-    // var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    // var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    //   return new bootstrap.Tooltip(tooltipTriggerEl)
-    // })
 
 });

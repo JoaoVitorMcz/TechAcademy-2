@@ -17,7 +17,7 @@
                 <img src="img/Banner Aneis (1).png" class="d-block w-100 img-placeholder-elegant" alt="Banner Elegância em Cada Detalhe" style="object-fit: cover; max-height: 600px;">
                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                     <h5 class="text-white">Elegância em Cada Detalhe</h5>
-                    <p class="text-white-50">Semijoias que transformam seu look.</p>
+                    <p class="text-white-50">Anéis que transformam seu look.</p>
                     <a href="catalogo_aneis" class="btn btn-primary">Ver Anéis</a>
                 </div>
             </div>
