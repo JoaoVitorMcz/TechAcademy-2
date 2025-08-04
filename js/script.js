@@ -90,26 +90,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-            // Validação do Gênero
-            const generos = document.querySelectorAll('input[name="genero"]');
-            const generoChecked = document.querySelector('input[name="genero"]:checked');
-            if (generos.length > 0) {
-                if (!generoChecked) {
+           // Validação do Gênero (agora select)
+            const generoSelect = document.querySelector('#genero-select');
+            if (generoSelect) {
+                if (!generoSelect.value || generoSelect.value === '') {
                     isValid = false;
-                    generos.forEach(radio => radio.classList.add('is-invalid'));
+                    generoSelect.classList.add('is-invalid');
                     if (generoFeedback) {
                         generoFeedback.textContent = 'Por favor, selecione seu gênero.';
                         generoFeedback.style.display = 'block';
                     }
-                    if (!firstInvalidField) firstInvalidField = generos[0];
+                    if (!firstInvalidField) firstInvalidField = generoSelect;
                 } else {
-                    generos.forEach(radio => radio.classList.remove('is-invalid'));
+                    generoSelect.classList.remove('is-invalid');
                     if (generoFeedback) {
                         generoFeedback.textContent = '';
                         generoFeedback.style.display = 'none';
                     }
                 }
             }
+
 
                 // Validação do Assunto
                 const assunto = document.querySelector('#assunto');
