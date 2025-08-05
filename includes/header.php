@@ -32,10 +32,10 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item me-3">
+                        <li class="nav-item me-4">
                             <a class="nav-link active" aria-current="page" href="home">Início</a>
                         </li>
-                        <li class="nav-item dropdown me-3">
+                        <li class="nav-item dropdown me-4">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCatalogos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Catálogos
                             </a>
@@ -46,10 +46,10 @@
                                 <li><a class="dropdown-item" href="catalogo_pulseiras">Pulseiras</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item me-3">
+                        <li class="nav-item me-4">
                             <a class="nav-link" href="sobre">Sobre Nós</a>
                         </li>
-                        <li class="nav-item me-3">
+                        <li class="nav-item me-4">
                             <a class="nav-link" href="contato">Contato</a>
                         </li>
                         <!--
