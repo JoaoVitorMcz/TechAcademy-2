@@ -5,7 +5,9 @@
                     <h5>Carina Melo</h5>
                     <p class="text-secondary-text small">
                         Especialistas em semijoias de alta qualidade, design exclusivo e elegância para todos os momentos.
-                        CNPJ Fictício: 00.000.000/0001-00
+                    </p>
+                    <p class="text-secondary-text small">
+                        CNPJ: 00.000.000/0001-00
                     </p>
                 </div>
                 <div class="col-lg-2 col-md-6">
@@ -36,7 +38,7 @@
             </div>
             <hr class="my-3" style="border-color: var(--color-secondary-highlight);">
             <div class="text-center text-secondary-text small">
-                <p>&copy; <?php echo $GLOBALS['anoAtual']; ?> Nome da Loja de Semijoias. Todos os direitos reservados.</p>
+                <p>&copy; <?php echo $GLOBALS['anoAtual']; ?> Carina Melo. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
