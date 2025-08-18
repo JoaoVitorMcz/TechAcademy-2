@@ -1,7 +1,9 @@
 <?php
-require 'autenvio/src/PHPMailer.php';
-require 'autenvio/src/SMTP.php';
-require 'autenvio/src/Exception.php';
+
+// Caminhos corrigidos para os arquivos do PHPMailer
+require 'php_mailer/PHPMailer-master/src/PHPMailer.php';
+require 'php_mailer/PHPMailer-master/src/SMTP.php';
+require 'php_mailer/PHPMailer-master/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
