@@ -44,14 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <b>Assunto:</b> $assunto <br>
             <b>Mensagem:</b> " . nl2br($mensagem);
 
-        $mail->send();
-        header("Location: contato.php?status=sucesso&msg=" . urlencode("Sua mensagem foi enviada com sucesso!"));
-        exit;
+       $mail->send();
+        echo "<script>alert('Mensagem enviada com sucesso! Entraremos em contato via whatsapp para fazer sua compra'); window.location.href = 'home';</script>";
     } catch (Exception $e) {
-        header("Location: contato.php?status=erro&msg=" . urlencode("Erro ao enviar: {$mail->ErrorInfo}"));
-        exit;
+        echo "Erro ao enviar: {$mail->ErrorInfo}";
     }
-} else {
-    header("Location: contato.php");
-    exit;
 }
