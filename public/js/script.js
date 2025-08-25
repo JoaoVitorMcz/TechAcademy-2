@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Validação do Nome
             const nome = document.querySelector('#nome');
-            if (nome && nome.value.trim() === '') {
+            if (nome > 2 && nome.value.trim() === '') {
                 isValid = false;
                 nome.classList.add('is-invalid');
                 if (nomeFeedback) {
@@ -205,5 +205,114 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
         }
     }
+    //PÁGINA DE REGISTRO
+    //elementos de formulário
+    const form = document.getElementById("formularioRegistro"); 
+    const nomeRegistro = document.getElementById("nomeRegistro");
+    const emailRegistro = document.getElementById("emailRegistro"); 
+    const telefoneRegistro = document.getElementById("telefoneRegistro"); 
+    const senhaRegistro = document.getElementById("senhaRegistro"); 
+    const toggleSenhaBtn = document.getElementById("toggleSenha"); 
+    
+telefoneRegistro.addEventListener("input", function(e) {
+        let value = e.target.value.replace(/\D/g, "");
+        
+        if (value.length <= 11) {
+            if (value.length <= 10) {
+                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+            } else {
+                value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+            }
+        }
+        
+        e.target.value = value;
+    });
+
+    //função para alternar visibilidade da senha
+    function visibilidadeSenha(input, button) {
+       const icon = button.querySelector("i");
+         if (input.type === "password") {
+              input.type = "text";
+              icon.classList.remove("fa-eye");
+              icon.classList.add("fa-eye-slash");
+         } else {
+              input.type = "password";
+              icon.classList.remove("fa-eye-slash");
+              icon.classList.add("fa-eye");
+         }
+    }
+    //event listener para mudar a senha
+    toggleSenhaBtn.addEventListener("click", function() {
+        visibilidadeSenha(senhaRegistro, toggleSenhaBtn);
+    });
+
+    //validação em tempo real (ajustada para retornar true/false e adicionar is-valid)
+    function validacao(input, validacaoFunction, mensagemErro){
+        const isValid = validacaoFunction(input.value);
+        if(isValid){
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+            return true; // Retorna true se válido
+        }else{
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            const feedback = input.parentNode.querySelector(".invalid-feedback");
+            if(feedback && mensagemErro){
+                feedback.textContent = mensagemErro;
+            }
+            return false; // Retorna false se inválido
+        }
+    }
+
+    //validações de campos (ajustadas para os IDs originais e mensagens)
+    const validacoes = {
+        nome: {
+            fn: (value) => value.trim().length > 2, // Ajustado para 2 caracteres como no PHP
+            mensagem: "Por favor, insira seu nome completo." // Mensagem original
+        },
+        email: {
+            fn: (value) => {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(value);
+            },
+            mensagem: "Por favor, insira um email válido." // Mensagem original
+        },
+        telefone: {
+            fn: (value) => {
+                const phoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+                return phoneRegex.test(value);
+            },
+            mensagem: "Por favor, insira um telefone válido no formato (XX) XXXXX-XXXX." // Mensagem original
+        },
+        senha: {
+            fn: (value) => value.length >= 6,
+            mensagem: "A senha deve ter pelo menos 6 caracteres." // Mensagem original
+        },
+        confirmar_senha: {
+            fn: (value) => value === senhaRegistro.value && value.length >= 6,
+            mensagem: "As senhas devem coincidir." // Mensagem original
+        }
+    };
+
+    // Event listeners para validação em tempo real (ajustados para os IDs originais)
+    nomeRegistro.addEventListener("blur", function(){
+        validacao(this, validacoes.nome.fn, validacoes.nome.mensagem);
+    });
+    emailRegistro.addEventListener("blur", function(){
+        validacao(this, validacoes.email.fn, validacoes.email.mensagem);
+    });
+    telefoneRegistro.addEventListener("blur", function(){
+        validacao(this, validacoes.telefone.fn, validacoes.telefone.mensagem);
+    });
+    senhaRegistro.addEventListener("blur", function(){
+        validacao(this, validacoes.senha.fn, validacoes.senha.mensagem);
+        // Revalidar confirmação de senha se já foi preenchida
+        if(confirmarSenhaRegistro.value){
+            validacao(confirmarSenhaRegistro, validacoes.confirmar_senha.fn, validacoes.confirmar_senha.mensagem);
+        }
+    });
+    confirmarSenhaRegistro.addEventListener("blur", function(){
+        validacao(this, validacoes.confirmar_senha.fn, validacoes.confirmar_senha.mensagem);
+    });
 
 });
