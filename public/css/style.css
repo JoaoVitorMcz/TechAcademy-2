@@ -342,3 +342,128 @@ footer .bi {
     border-radius: 0.5rem;
     border: 1px solid var(--color-secondary-highlight);
 }
+.container-dashboard{
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar{
+    width: 250px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary-highlight));
+    padding: 2rem 0;
+    box-shadow: 2px 0 10px black;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+.sidebar-header{
+    padding: 0 2rem 2 rem;
+    margin-bottom: 2rem;
+}
+.sidebar-header h1{
+    color: var(--color-text-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+.sidebar-nav{
+    list-style: none;
+}
+.sidebar-nav li{
+    margin-bottom: 0.5rem;
+}
+.sidebar-nav a{
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-weight: 500;
+}
+.sidebar-nav a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+.sidebar-nav a i{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.div-form-produto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.main-content{
+    margin-left: 280px;
+    padding: 2rem;
+}
+.page-header{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px black;
+    margin-bottom: 2rem;
+}
+.page-header h1{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+.page-header p{
+    color: var(--color-text-secondary);
+}
+.card-produto{
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px black;
+    margin-bottom: 2rem;
+}
+.card-produto:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px black;
+}
+.card-header-produto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-light-background-cards);
+}
+.card-title-produto{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+.btn-produto{
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn-produto i{
+    margin-right: 0.5rem;
+}
+.btn-primary-produto{
+    background-color: var(--color-primary);
+    color: var(--color-text-main);
+}
+.btn-primary-produto:hover{
+    background-color: var(--color-secondary-highlight);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--color-primary);
+}
+.btn-secondary-produto{
+    background-color: var(--color-bootstrap-secondary-grey);
+    color: white;
+}
+.btn-secondary-produto:hover{
+    background-color: gray;
+    transform: translateY(-2px);
+}

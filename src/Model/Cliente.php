@@ -15,7 +15,7 @@ class Cliente
     #[Column, Id, GeneratedValue]
     private int $id;
     #[Column]
-    private string $name;
+    private string $nome;
     #[Column(unique: true)]
     private string $email;
     #[Column]
@@ -23,9 +23,9 @@ class Cliente
     #[Column]
     private string $senha;
 
-    public function __construct(string $name, string $email, string $telefone, string $senha)
+    public function __construct(string $nome, string $email, string $telefone, string $senha)
     {
-        $this->name = $name;
+        $this->nome = $nome;
         $this->email = $email;
         $this->telefone = $telefone;
         $this->senha = $senha;
@@ -35,9 +35,9 @@ class Cliente
         return $this->id;
     }
 
-    public function getName(): string
+    public function getNome(): string
     {
-        return $this->name;
+        return $this->nome;
     }
 
     public function getEmail(): string
@@ -60,9 +60,9 @@ class Cliente
         $this->id = $id;
     }
 
-    public function setName(string $name): void
+    public function setNome(string $nome): void
     {
-        $this->name = $name;
+        $this->nome = $nome;
     }
 
     public function setEmail(string $email): void

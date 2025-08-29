@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'matheusercoli/techacademy-3',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '60d48b5f343e35f77d78670d322d0eb06d929671',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'fe3a972dbdf6b249ad7e1af1bbe205e80f2b1b88',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -101,9 +101,9 @@
             'dev_requirement' => false,
         ),
         'matheusercoli/techacademy-3' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '60d48b5f343e35f77d78670d322d0eb06d929671',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'fe3a972dbdf6b249ad7e1af1bbe205e80f2b1b88',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

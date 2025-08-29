@@ -1,3 +1,16 @@
+<?php
+use App\Model\Cliente;
+require_once __DIR__ . '/../../../vendor/autoload.php';
+if($_POST){
+    $cliente = new Cliente(
+        nome: $_POST['nomeRegistro'],
+        email: $_POST['emailRegistro'],
+        telefone: $_POST['telefoneRegistro'],
+        senha: $_POST['senhaRegistro']
+    );
+    $cliente->save();
+}
+?>
 <body>
     <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
         <div class="row w-100 justify-content-center">
