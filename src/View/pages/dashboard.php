@@ -60,6 +60,7 @@ $funcionarios = Funcionario::getAllFuncionarios();
                         <li class="nav-item me-4">
                             <a class="nav-link" href="">Faturamento</a>
                         </li>
+                        
                         <!--
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
