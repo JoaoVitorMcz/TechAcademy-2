@@ -78,15 +78,20 @@ class Produto
     {
         $this->estoque = $estoque;
     }
+    public function save(): void
+    {
+        $em = Database::getEntityManager();
+        $em->persist($this);
+        $em->flush();
+    }
 
-
-    public function getAllProdutos(): array
+    public static function getAllProdutos(): array
     {
         $em = Database::getEntityManager();
         $repository = $em->getRepository(Produto::class);
         return $repository->findAll();
     }
-    public function updateProduto($id, $nome, $descricao, $preco, $estoque)
+    public static function updateProduto($id, $nome, $descricao, $preco, $estoque)
     {
         $em = Database::getEntityManager();
 
@@ -108,7 +113,7 @@ class Produto
 
         return $produto;
     }
-    public function deleteProduto($id)
+    public static function deleteProduto($id)
     {
         $em = Database::getEntityManager();
 
@@ -125,7 +130,7 @@ class Produto
 
         return true; 
     }
-    public function getProdutoById($id): ?Produto
+    public static function getProdutoById($id): ?Produto
     {
         $em = Database::getEntityManager();
 
@@ -135,20 +140,16 @@ class Produto
         
         return $produto;
     }
-    // public function addProduto($nome, $descricao, $preco, $estoque): Produto
-    // {
-    //     $em = Database::getEntityManager();
+     public static function addProduto(string $nome, string $descricao, float $preco, int $estoque): Produto
+    {
+    $em = Database::getEntityManager();
 
-    //    // $produto = new Produto();
-    //     $produto->setNome($nome);
-    //     $produto->setDescricao($descricao);
-    //     $produto->setPreco($preco);
-    //     $produto->setEstoque($estoque);
+    $produto = new Produto($nome, $descricao, $preco, $estoque);
 
-    
-    //     $em->persist($produto);
-    //     $em->flush();
+    $em->persist($produto);
+    $em->flush();
 
-    //     return $produto; // retorna o produto recém-criado
-    // }
+    return $produto;
+    }
+
 }
