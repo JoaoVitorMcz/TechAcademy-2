@@ -8,25 +8,36 @@
 
 ?>
 <?php
+use App\Controller\Catalogo_aneisController;
+use App\Controller\Catalogo_todosController;
+use App\Controller\Catalogo_colaresController;
+use App\Controller\Catalogo_pulseirasController;
+use App\Controller\ContatoController;
+use App\Controller\DashboardController;
+use App\Controller\ErroController;
+use App\Controller\HomeController;
+use App\Controller\LoginController;
+use App\Controller\SobreController;
+use App\Controller\RegisterController;
+use App\Controller\Controller;
 
+require_once __DIR__ . '/../vendor/autoload.php';
+$uri= $_SERVER['REQUEST_URI'];
 
-require_once __DIR__ . '/../src/View/includes/header.php';
+$pages = [
+    '/catalogo_todos' => new Catalogo_todosController,
+    '/catalogo_aneis' => new Catalogo_aneisController,
+    '/catalogo_colares' => new Catalogo_colaresController,
+    '/catalogo_pulseiras' => new Catalogo_pulseirasController,
+    '/contato' => new ContatoController,
+    '/dashboard' => new DashboardController,
+    '/home' => new HomeController,
+    '/sobre' => new SobreController,
+    '/login' => new LoginController,
+    '/registro' => new RegisterController
+];
 
-        $pagina = $_GET["param"] ?? "home";
+$controller = $pages[$uri] ?? new ErroController;
 
-        $param = explode("/", $pagina);
-
-        $pagina = $param[0];
-        $id = $param[1] ?? null;
-
-        $pagina = __DIR__ . "/../src/View/pages{$_SERVER['REQUEST_URI']}.php";
-
-        if (file_exists($pagina)) {
-            include $pagina;
-        } else {
-            include __DIR__ . "/../src/View/pages/erro.php";
-        }
-    
-require_once __DIR__ . '/../src/View/includes/footer.php';
-
+$controller->render();
 ?>
