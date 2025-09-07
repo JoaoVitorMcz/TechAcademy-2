@@ -316,3 +316,123 @@ telefoneRegistro.addEventListener("input", function(e) {
     });
 
 });
+
+// Máscara do formulário de contato
+if (document.getElementById('telefone')) {
+    VMasker(document.getElementById('telefone')).maskPattern('(99) 99999-9999');
+}
+// Máscara para o formulário de registro
+if (document.getElementById('telefoneRegistro')) {
+    VMasker(document.getElementById('telefoneRegistro')).maskPattern('(99) 99999-9999');
+}
+
+// Objeto com as validações
+const validacoes = {
+    nome: (input) => input.value.length >= 3,
+    email: (input) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value),
+    telefone: (input) => /^\(\d{2}\) \d{5}-\d{4}$/.test(input.value),
+    mensagem: (input) => input.value.trim() !== '',
+    // Adicionando validações para o formulário de registro
+    nomeRegistro: (input) => input.value.length >= 3,
+    emailRegistro: (input) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value),
+    telefoneRegistro: (input) => /^\(\d{2}\) \d{5}-\d{4}$/.test(input.value),
+    senhaRegistro: (input) => input.value.length >= 6,
+};
+
+// Função de validação que aplica classes e retorna o status
+function validacao(event) {
+    const input = event.target;
+    const tipo = input.id; // Usar o ID do campo como tipo de validação
+
+    // Verifica se existe uma regra de validação para o campo
+    if (validacoes[tipo]) {
+        const ehValido = validacoes[tipo](input);
+        if (ehValido) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+        } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+        }
+        return ehValido; // Retorna true se válido, false se inválido
+    }
+    return true; // Se não houver regra, considera o campo como válido
+}
+
+// --- LÓGICA EXISTENTE PARA O FORMULÁRIO DE CONTATO ---
+const formularioContato = document.getElementById('formularioContato');
+if (formularioContato) {
+    const inputsContato = formularioContato.querySelectorAll('input, textarea');
+    inputsContato.forEach(input => {
+        // Aplica a validação em tempo real ao sair do campo
+        input.addEventListener('blur', validacao);
+    });
+
+    // Validação no envio do formulário de contato
+    formularioContato.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        let formValido = true;
+        inputsContato.forEach(input => {
+            const tipo = input.id;
+            if (validacoes[tipo] && !validacoes[tipo](input)) {
+                input.classList.add('is-invalid');
+                formValido = false;
+            } else if (validacoes[tipo]) {
+                input.classList.add('is-valid');
+            }
+        });
+
+        if (formValido) {
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Sua mensagem foi enviada.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then(() => {
+                formularioContato.submit();
+            });
+        } else {
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Por favor, preencha todos os campos corretamente.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        }
+    });
+}
+
+// --- NOVA LÓGICA PARA O FORMULÁRIO DE REGISTRO ---
+const formularioRegistro = document.getElementById('formularioRegistro');
+if (formularioRegistro) {
+
+    const inputsRegistro = formularioRegistro.querySelectorAll('input');
+
+    // Adiciona o listener de 'blur' para feedback em tempo real
+    inputsRegistro.forEach(input => {
+        input.addEventListener('blur', validacao);
+    });
+
+    // Adiciona o listener de 'submit' para o formulário de registro
+    formularioRegistro.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        let isFormValid = true;
+
+        // Itera sobre todos os inputs para validar e aplicar feedback visual
+        inputsRegistro.forEach(input => {
+            // A função validacao aplica as classes e retorna true/false.
+            // Se qualquer chamada retornar false, o formulário se torna inválido.
+            if (!validacao({ target: input })) {
+                isFormValid = false;
+            }
+        });
+
+        // Se todos os campos forem válidos, redireciona para a página home
+        if (isFormValid) {
+            window.location.href = 'home';
+        }
+        // Caso contrário, o envio é bloqueado e o usuário verá os campos inválidos.
+    });
+}
