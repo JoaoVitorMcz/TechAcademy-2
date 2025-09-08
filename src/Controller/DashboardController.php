@@ -39,8 +39,8 @@ $clientes = Cliente::getAllCliente();
 $produtos = Produto::getAllProdutos();
 $funcionarios = Funcionario::getAllFuncionarios();
 
-        include __DIR__ . '/../../src/View/includes/header.php';
-        include __DIR__ . '/../../src/View/pages/dashboard.php';
-        include __DIR__ . '/../../src/View/includes/footer.php';
+        include __DIR__ . '/../View/includes/header.php';
+        include __DIR__ . '/../View/pages/dashboard.php';
+        include __DIR__ . '/../View/includes/footer.php';
     }
 }

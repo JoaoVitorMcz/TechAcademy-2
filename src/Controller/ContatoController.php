@@ -1,7 +1,7 @@
 <?php 
 namespace App\Controller;
 class ContatoController implements Controller {
-    public function render() {
+    public function render(): void {
         if (isset($_GET['status'])) {
     $tipo_alerta = $_GET['status'] === 'sucesso' ? 'success' : 'danger';
     $mensagem_status = $_GET['status'] === 'sucesso' ? 'Sucesso!' : 'Erro!';

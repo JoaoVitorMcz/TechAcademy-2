@@ -31,8 +31,8 @@ class Catalogo_todosController implements Controller
     ["id" => 23, "nome" => "Pulseira Rede Oca", "preco" => "135,00", "imagem" => "img/Pulseira Rede Oca.jpg", "descricao" => "Estilo robusto e moderno para homens de atitude."],
     ["id" => 24, "nome" => "Pulseira Tripla Pontos De Luz Zircônias", "preco" => "168,00", "imagem" => "img/Pulseira tripla pontos de luz zircônias.jpg", "descricao" => "Elegância atemporal com pérolas delicadas."],
 ];
-        include __DIR__ . '/../../src/View/includes/header.php';
-        include __DIR__ . '/../../src/View/pages/catalogo_todos.php';
-        include __DIR__ . '/../../src/View/includes/footer.php';
+        include __DIR__ . '/../View/includes/header.php';
+        include __DIR__ . '/../View/pages/catalogo_todos.php';
+        include __DIR__ . '/../View/includes/footer.php';
     }
 }

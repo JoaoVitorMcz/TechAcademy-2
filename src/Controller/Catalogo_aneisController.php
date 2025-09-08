@@ -14,8 +14,8 @@ class Catalogo_aneisController implements Controller
         ["id" => 7, "nome" => "Anel Orgânico com Pérola Regulável", "preco" => "219,00", "imagem" => "img/Anel Orgânico com Pérola Regulável.jpg", "descricao" => "Elegância e sofisticação em um design tradicional."],
         ["id" => 8, "nome" => "Anel Solitário Master Zircônia Grande", "preco" => "129,00", "imagem" => "img/Anel Solitário Master Zircônia Grande.jpg", "descricao" => "Para quem ama linhas limpas e estilo moderno."]
     ];
-        include __DIR__ . '/../../src/View/includes/header.php';
-        include __DIR__ . '/../../src/View/pages/catalogo_aneis.php';
-        include __DIR__ . '/../../src/View/includes/footer.php';
+        include __DIR__ . '/../View/includes/header.php';
+        include __DIR__ . '/../View/pages/catalogo_aneis.php';
+        include __DIR__ . '/../View/includes/footer.php';
     }
 }

@@ -18,7 +18,7 @@ use App\Controller\ErroController;
 use App\Controller\HomeController;
 use App\Controller\LoginController;
 use App\Controller\SobreController;
-use App\Controller\RegisterController;
+use App\Controller\RegistroController;
 use App\Controller\Controller;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -34,7 +34,8 @@ $pages = [
     '/home' => new HomeController,
     '/sobre' => new SobreController,
     '/login' => new LoginController,
-    '/registro' => new RegisterController
+    '/registro' => new RegistroController,
+    '/' => new HomeController
 ];
 
 $controller = $pages[$uri] ?? new ErroController;

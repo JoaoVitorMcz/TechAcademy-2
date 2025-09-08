@@ -14,10 +14,9 @@ class RegistroController implements Controller
         senha: $_POST['senhaRegistro']
     );
     $cliente->save();
-
-        require __DIR__ . '/../../View/includes/header.php';
-        require __DIR__ . '/../../View/pages/registro.php';
-        require __DIR__ . '/../../View/includes/footer.php';
-    }
+        }
+        include __DIR__ . '/../View/includes/header.php';
+        include __DIR__ . '/../View/pages/registro.php';
+        include __DIR__ . '/../View/includes/footer.php';
     }
 }

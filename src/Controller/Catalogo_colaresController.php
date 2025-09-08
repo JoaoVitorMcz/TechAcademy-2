@@ -15,8 +15,8 @@ class Catalogo_colaresController implements Controller
         ["id" => 15, "nome" => "Gargantilha Coração Pedra Esmeralda", "preco" => "159,00", "imagem" => "img/Gargantilha Coração Pedra Esmeralda.jpg", "descricao" => "Romântico e delicado, perfeito para presentear alguém especial."],
         ["id" => 16, "nome" => "Gargantilha Flor Cravejada", "preco" => "168,00", "imagem" => "img/Gargantilha Flor Cravejada.jpg", "descricao" => "Elegância atemporal com pérola sintética de alta qualidade."],
     ];
-        include __DIR__ . '/../../src/View/includes/header.php';
-        include __DIR__ . '/../../src/View/pages/catalogo_colares.php';
-        include __DIR__ . '/../../src/View/includes/footer.php';
+        include __DIR__ . '/../View/includes/header.php';
+        include __DIR__ . '/../View/pages/catalogo_colares.php';
+        include __DIR__ . '/../View/includes/footer.php';
     }
 }

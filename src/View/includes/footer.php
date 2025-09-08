@@ -38,7 +38,7 @@
             </div>
             <hr class="my-3" style="border-color: var(--color-secondary-highlight);">
             <div class="text-center text-secondary-text small">
-                <p>&copy; <?php echo $GLOBALS['anoAtual']; ?> Carina Melo. Todos os direitos reservados.</p>
+                <p>2025 Carina Melo. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
