@@ -1,438 +1,218 @@
-// Espera o DOM estar completamente carregado para executar os scripts
+// Espera o DOM estar completamente carregado
 document.addEventListener('DOMContentLoaded', function () {
-
-    // Inicialização do Vanilla Masker para o campo de telefone
-    const phoneInput = document.querySelector('input[type="tel"]#telefone'); // Seletor mais específico com ID
-    if (phoneInput) {
-        VMasker(phoneInput).maskPattern('(99) 99999-9999');
+  // ============== UTILIDADES ==============
+  function setValidity(input, ok, msg) {
+    if (!input) return;
+    input.classList.toggle('is-valid', !!ok);
+    input.classList.toggle('is-invalid', !ok);
+    const feedback =
+      input.parentNode?.querySelector('.invalid-feedback') ||
+      document.querySelector(`#${input.id}Feedback`);
+    if (feedback) {
+      feedback.textContent = ok ? '' : (msg || '');
+      feedback.style.display = ok ? 'none' : 'block';
     }
+  }
 
-    // Validação do formulário de contato (exemplo básico)
-    const contactForm = document.querySelector('#formContato');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            let isValid = true;
-            let firstInvalidField = null;
-
-            // Elementos de feedback
-            const nomeFeedback = document.querySelector('#nomeFeedback');
-            const emailFeedback = document.querySelector('#emailFeedback');
-            const telefoneFeedback = document.querySelector('#telefoneFeedback');
-            const generoFeedback = document.querySelector('#generoFeedback');
-            const assuntoFeedback = document.querySelector('#assuntoFeedback');
-            const mensagemFeedback = document.querySelector('#mensagemFeedback');
-
-            // Limpa feedbacks anteriores e classes de inválido
-            document.querySelectorAll('.form-control, .form-select').forEach(input => {
-                input.classList.remove('is-invalid');
-            });
-            document.querySelectorAll('.invalid-feedback').forEach(feedback => {
-                if (feedback) feedback.style.display = 'none';
-            });
-
-
-            // Validação do Nome
-            const nome = document.querySelector('#nome');
-            if (nome > 2 && nome.value.trim() === '') {
-                isValid = false;
-                nome.classList.add('is-invalid');
-                if (nomeFeedback) {
-                    nomeFeedback.textContent = 'Por favor, informe seu nome completo.';
-                    nomeFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = nome;
-            }
-
-            // Validação do Email
-            const email = document.querySelector('#email');
-            if (email) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (email.value.trim() === '') {
-                    isValid = false;
-                    email.classList.add('is-invalid');
-                    if (emailFeedback) {
-                        emailFeedback.textContent = 'Por favor, informe seu e-mail.';
-                        emailFeedback.style.display = 'block';
-                    }
-                    if (!firstInvalidField) firstInvalidField = email;
-                } else if (!emailPattern.test(email.value.trim())) {
-                    isValid = false;
-                    email.classList.add('is-invalid');
-                    if (emailFeedback) {
-                        emailFeedback.textContent = 'Por favor, informe um e-mail válido.';
-                        emailFeedback.style.display = 'block';
-                    }
-                    if (!firstInvalidField) firstInvalidField = email;
-                }
-            }
-
-           // Verifica se o campo está completamente preenchido
-        const telefone = document.querySelector('#telefone');
-        if (telefone) {
-            // Remove caracteres não numéricos para contar apenas os dígitos
-            const apenasDigitos = telefone.value.replace(/\D/g, '');
-
-            // Um telefone no Brasil tem 10 (fixo) ou 11 (celular com 9º dígito) números.
-            // A validação checa se a quantidade de dígitos é menor que 11.
-            if (apenasDigitos.length < 11) {
-                isValid = false;
-                telefone.classList.add('is-invalid');
-                if (telefoneFeedback) {
-                    // Mostra uma mensagem diferente se o campo estiver vazio ou se estiver incompleto
-                    if (telefone.value.trim() === '') {
-                        telefoneFeedback.textContent = 'Por favor, informe seu telefone.';
-                    } else {
-                        telefoneFeedback.textContent = 'Por favor, preencha o telefone completo com DDD.';
-                    }
-                    telefoneFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = telefone;
-            }
-        }
-
-           // Validação do Gênero (agora select)
-            const generoSelect = document.querySelector('#genero-select');
-            if (generoSelect) {
-                if (!generoSelect.value || generoSelect.value === '') {
-                    isValid = false;
-                    generoSelect.classList.add('is-invalid');
-                    if (generoFeedback) {
-                        generoFeedback.textContent = 'Por favor, selecione seu gênero.';
-                        generoFeedback.style.display = 'block';
-                    }
-                    if (!firstInvalidField) firstInvalidField = generoSelect;
-                } else {
-                    generoSelect.classList.remove('is-invalid');
-                    if (generoFeedback) {
-                        generoFeedback.textContent = '';
-                        generoFeedback.style.display = 'none';
-                    }
-                }
-            }
-
-
-                // Validação do Assunto
-                const assunto = document.querySelector('#assunto');
-            if (assunto && assunto.value.trim() === '') {
-                isValid = false;
-                assunto.classList.add('is-invalid');
-                if (assuntoFeedback) {
-                    assuntoFeedback.textContent = 'Por favor, informe o assunto.';
-                    assuntoFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = assunto;
-            }
-
-            // Validação da Mensagem
-            const mensagem = document.querySelector('#mensagem');
-            if (mensagem && mensagem.value.trim() === '') {
-                isValid = false;
-                mensagem.classList.add('is-invalid');
-                if (mensagemFeedback) {
-                    mensagemFeedback.textContent = 'Por favor, escreva sua mensagem.';
-                    mensagemFeedback.style.display = 'block';
-                }
-                if (!firstInvalidField) firstInvalidField = mensagem;
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Impede o envio do formulário PHP se a validação JS falhar
-                event.stopPropagation();
-
-                if (firstInvalidField) {
-                    firstInvalidField.focus();
-                }
-            } else {
-                // Se for válido, o formulário será enviado para o PHP.
-                // A mensagem de sucesso/erro do PHP será exibida na página após o reload.
-            }
-        });
-    }
-
-    // Ativar active state para links de navegação baseado na URL atual
-    const currentPath = window.location.pathname.split("/").pop();
-    if (currentPath === "") { // Para o caso de index.php ser a raiz
-        document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
-    } else {
-        const activeLink = document.querySelector(`.navbar-nav .nav-link[href="${currentPath}"]`);
-        if (activeLink) {
-
-            document.querySelectorAll('.navbar-nav .nav-link.active').forEach(link => link.classList.remove('active'));
-            activeLink.classList.add('active');
-        }
-        // Para o dropdown de catálogos
-        if (currentPath.startsWith("catalogo_")) {
-            const catalogosDropdown = document.querySelector('#navbarDropdownCatalogos');
-            if (catalogosDropdown) {
-                // Remove 'active' de qualquer outro link que possa ter sido setado no HTML
-                document.querySelectorAll('.navbar-nav .nav-link.active').forEach(link => link.classList.remove('active'));
-                catalogosDropdown.classList.add('active');
-            }
-        }
-    }
-
-
-    // Adiciona classe 'active' ao link de navegação 'Início' se for a página principal
-    // e nenhum outro link específico da página atual for encontrado.
-    // Isso garante que 'Início' fique ativo na raiz do site.
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    let hasActivePageLink = false;
-    navLinks.forEach(link => {
-        if (link.href === window.location.href && window.location.pathname !== '/' && !window.location.pathname.endsWith('index.php')) {
-            // Remove active de todos os links primeiro
-            navLinks.forEach(l => l.classList.remove('active'));
-            // Adiciona active ao link correspondente
-            link.classList.add('active');
-            hasActivePageLink = true;
-
-            // Se o link ativo estiver dentro de um dropdown, marca o toggler do dropdown como ativo também
-            const dropdownToggle = link.closest('.nav-item.dropdown')?.querySelector('.nav-link.dropdown-toggle');
-            if (dropdownToggle) {
-                dropdownToggle.classList.add('active');
-            }
-        }
+  function attachBlurValidation(input, rule) {
+    if (!input || !rule) return;
+    input.addEventListener('blur', () => {
+      const value = input.value ?? '';
+      const ok = rule.test(value);
+      setValidity(input, ok, rule.msg);
     });
+  }
 
-    // Se nenhuma página específica está ativa e estamos na página inicial (index.php ou raiz)
-    // ou se o dropdown de catálogos deve estar ativo.
-    const pageName = window.location.pathname.split("/").pop();
-    if (!hasActivePageLink) {
-        if (pageName === 'index.php' || pageName === '') {
-            navLinks.forEach(l => l.classList.remove('active'));
-            document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
-        } else if (pageName.startsWith('catalogo_')) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
-        }
-    }
-    //PÁGINA DE REGISTRO
-    //elementos de formulário
-    const form = document.getElementById("formularioRegistro"); 
-    const nomeRegistro = document.getElementById("nomeRegistro");
-    const emailRegistro = document.getElementById("emailRegistro"); 
-    const telefoneRegistro = document.getElementById("telefoneRegistro"); 
-    const senhaRegistro = document.getElementById("senhaRegistro"); 
-    const toggleSenhaBtn = document.getElementById("toggleSenha"); 
-    
-telefoneRegistro.addEventListener("input", function(e) {
-        let value = e.target.value.replace(/\D/g, "");
-        
-        if (value.length <= 11) {
-            if (value.length <= 10) {
-                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
-            } else {
-                value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
-            }
-        }
-        
-        e.target.value = value;
-    });
+  // ============== MÁSCARAS ==============
+  const telContato = document.getElementById('telefone');
+  if (telContato && typeof VMasker !== 'undefined') {
+    VMasker(telContato).maskPattern('(99) 99999-9999');
+  }
 
-    //função para alternar visibilidade da senha
-    function visibilidadeSenha(input, button) {
-       const icon = button.querySelector("i");
-         if (input.type === "password") {
-              input.type = "text";
-              icon.classList.remove("fa-eye");
-              icon.classList.add("fa-eye-slash");
-         } else {
-              input.type = "password";
-              icon.classList.remove("fa-eye-slash");
-              icon.classList.add("fa-eye");
-         }
-    }
-    //event listener para mudar a senha
-    toggleSenhaBtn.addEventListener("click", function() {
-        visibilidadeSenha(senhaRegistro, toggleSenhaBtn);
-    });
+  const telRegistro = document.getElementById('telefoneRegistro');
+  if (telRegistro && typeof VMasker !== 'undefined') {
+    VMasker(telRegistro).maskPattern('(99) 99999-9999');
+  }
 
-    //validação em tempo real (ajustada para retornar true/false e adicionar is-valid)
-    function validacao(input, validacaoFunction, mensagemErro){
-        const isValid = validacaoFunction(input.value);
-        if(isValid){
-            input.classList.remove("is-invalid");
-            input.classList.add("is-valid");
-            return true; // Retorna true se válido
-        }else{
-            input.classList.remove("is-valid");
-            input.classList.add("is-invalid");
-            const feedback = input.parentNode.querySelector(".invalid-feedback");
-            if(feedback && mensagemErro){
-                feedback.textContent = mensagemErro;
-            }
-            return false; // Retorna false se inválido
-        }
-    }
+  // ============== FORMULÁRIO DE CONTATO (opcional) ==============
+  // Suporta #formContato ou #formularioContato (use o que existir na sua página)
+  const formContato = document.getElementById('formContato') || document.getElementById('formularioContato');
+  if (formContato) {
+    const nome = document.getElementById('nome');
+    const email = document.getElementById('email');
+    const telefone = document.getElementById('telefone');
+    const generoSelect = document.getElementById('genero-select');
+    const assunto = document.getElementById('assunto');
+    const mensagem = document.getElementById('mensagem');
 
-    //validações de campos (ajustadas para os IDs originais e mensagens)
-    const validacoes = {
-        nome: {
-            fn: (value) => value.trim().length > 2, // Ajustado para 2 caracteres como no PHP
-            mensagem: "Por favor, insira seu nome completo." // Mensagem original
-        },
-        email: {
-            fn: (value) => {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(value);
-            },
-            mensagem: "Por favor, insira um email válido." // Mensagem original
-        },
-        telefone: {
-            fn: (value) => {
-                const phoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
-                return phoneRegex.test(value);
-            },
-            mensagem: "Por favor, insira um telefone válido no formato (XX) XXXXX-XXXX." // Mensagem original
-        },
-        senha: {
-            fn: (value) => value.length >= 6,
-            mensagem: "A senha deve ter pelo menos 6 caracteres." // Mensagem original
-        },
-        confirmar_senha: {
-            fn: (value) => value === senhaRegistro.value && value.length >= 6,
-            mensagem: "As senhas devem coincidir." // Mensagem original
-        }
+    const contatoRules = {
+      nome:    { el: nome,     test: v => v.trim().length >= 3, msg: 'Por favor, informe seu nome completo.' },
+      email:   { el: email,    test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Por favor, informe um e-mail válido.' },
+      telefone:{ el: telefone, test: v => /^\(\d{2}\)\s?\d{4,5}-\d{4}$/.test(v), msg: 'Por favor, preencha o telefone completo com DDD.' },
+      genero:  { el: generoSelect, test: v => v !== '', msg: 'Por favor, selecione seu gênero.' },
+      assunto: { el: assunto,  test: v => v.trim() !== '', msg: 'Por favor, informe o assunto.' },
+      mensagem:{ el: mensagem, test: v => v.trim() !== '', msg: 'Por favor, escreva sua mensagem.' },
     };
 
-    // Event listeners para validação em tempo real (ajustados para os IDs originais)
-    nomeRegistro.addEventListener("blur", function(){
-        validacao(this, validacoes.nome.fn, validacoes.nome.mensagem);
-    });
-    emailRegistro.addEventListener("blur", function(){
-        validacao(this, validacoes.email.fn, validacoes.email.mensagem);
-    });
-    telefoneRegistro.addEventListener("blur", function(){
-        validacao(this, validacoes.telefone.fn, validacoes.telefone.mensagem);
-    });
-    senhaRegistro.addEventListener("blur", function(){
-        validacao(this, validacoes.senha.fn, validacoes.senha.mensagem);
-        // Revalidar confirmação de senha se já foi preenchida
-        if(confirmarSenhaRegistro.value){
-            validacao(confirmarSenhaRegistro, validacoes.confirmar_senha.fn, validacoes.confirmar_senha.mensagem);
-        }
-    });
-    confirmarSenhaRegistro.addEventListener("blur", function(){
-        validacao(this, validacoes.confirmar_senha.fn, validacoes.confirmar_senha.mensagem);
-    });
+    // Blur validation
+    Object.values(contatoRules).forEach(r => r.el && attachBlurValidation(r.el, r));
 
-});
+    // Submit validation
+    formContato.addEventListener('submit', function (event) {
+      let okForm = true;
+      let firstInvalid = null;
 
-// Máscara do formulário de contato
-if (document.getElementById('telefone')) {
-    VMasker(document.getElementById('telefone')).maskPattern('(99) 99999-9999');
-}
-// Máscara para o formulário de registro
-if (document.getElementById('telefoneRegistro')) {
-    VMasker(document.getElementById('telefoneRegistro')).maskPattern('(99) 99999-9999');
-}
+      Object.values(contatoRules).forEach(r => {
+        if (!r.el) return;
+        const ok = r.test(r.el.value ?? '');
+        setValidity(r.el, ok, r.msg);
+        if (!ok && !firstInvalid) firstInvalid = r.el;
+        okForm = okForm && ok;
+      });
 
-// Objeto com as validações
-const validacoes = {
-    nome: (input) => input.value.length >= 3,
-    email: (input) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value),
-    telefone: (input) => /^\(\d{2}\) \d{5}-\d{4}$/.test(input.value),
-    mensagem: (input) => input.value.trim() !== '',
-    // Adicionando validações para o formulário de registro
-    nomeRegistro: (input) => input.value.length >= 3,
-    emailRegistro: (input) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value),
-    telefoneRegistro: (input) => /^\(\d{2}\) \d{5}-\d{4}$/.test(input.value),
-    senhaRegistro: (input) => input.value.length >= 6,
-};
-
-// Função de validação que aplica classes e retorna o status
-function validacao(event) {
-    const input = event.target;
-    const tipo = input.id; // Usar o ID do campo como tipo de validação
-
-    // Verifica se existe uma regra de validação para o campo
-    if (validacoes[tipo]) {
-        const ehValido = validacoes[tipo](input);
-        if (ehValido) {
-            input.classList.remove('is-invalid');
-            input.classList.add('is-valid');
-        } else {
-            input.classList.remove('is-valid');
-            input.classList.add('is-invalid');
-        }
-        return ehValido; // Retorna true se válido, false se inválido
-    }
-    return true; // Se não houver regra, considera o campo como válido
-}
-
-// --- LÓGICA EXISTENTE PARA O FORMULÁRIO DE CONTATO ---
-const formularioContato = document.getElementById('formularioContato');
-if (formularioContato) {
-    const inputsContato = formularioContato.querySelectorAll('input, textarea');
-    inputsContato.forEach(input => {
-        // Aplica a validação em tempo real ao sair do campo
-        input.addEventListener('blur', validacao);
-    });
-
-    // Validação no envio do formulário de contato
-    formularioContato.addEventListener('submit', function (event) {
+      if (!okForm) {
         event.preventDefault();
+        event.stopPropagation();
+        firstInvalid?.focus();
+      }
+    });
+  }
 
-        let formValido = true;
-        inputsContato.forEach(input => {
-            const tipo = input.id;
-            if (validacoes[tipo] && !validacoes[tipo](input)) {
-                input.classList.add('is-invalid');
-                formValido = false;
-            } else if (validacoes[tipo]) {
-                input.classList.add('is-valid');
-            }
-        });
+  // ============== FORMULÁRIO DE REGISTRO (principal) ==============
+  const formularioRegistro = document.getElementById('formularioRegistro');
+  if (formularioRegistro) {
+    const nomeRegistro = document.getElementById('nomeRegistro');
+    const emailRegistro = document.getElementById('emailRegistro');
+    const telefoneRegistro = document.getElementById('telefoneRegistro');
+    const senhaRegistro = document.getElementById('senhaRegistro');
+    const confirmarSenhaRegistro = document.getElementById('confirmarSenhaRegistro');
+    const toggleSenhaBtn = document.getElementById('toggleSenha');
 
-        if (formValido) {
-            Swal.fire({
-                title: 'Sucesso!',
-                text: 'Sua mensagem foi enviada.',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            }).then(() => {
-                formularioContato.submit();
-            });
-        } else {
-            Swal.fire({
-                title: 'Erro!',
-                text: 'Por favor, preencha todos os campos corretamente.',
-                icon: 'error',
-                confirmButtonText: 'Ok'
-            });
+    // Toggle de visibilidade da senha
+    function visibilidadeSenha(input, button) {
+      if (!input || !button) return;
+      const icon = button.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon?.classList.remove('fa-eye');
+        icon?.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon?.classList.remove('fa-eye-slash');
+        icon?.classList.add('fa-eye');
+      }
+    }
+    if (toggleSenhaBtn && senhaRegistro) {
+      toggleSenhaBtn.addEventListener('click', () => visibilidadeSenha(senhaRegistro, toggleSenhaBtn));
+    }
+
+    // Regras centralizadas (IDs do registro)
+    const rules = {
+      nomeRegistro: {
+        el: nomeRegistro,
+        test: v => v.trim().length >= 3,
+        msg: 'Por favor, insira seu nome completo.',
+      },
+      emailRegistro: {
+        el: emailRegistro,
+        test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+        msg: 'Por favor, insira um email válido.',
+      },
+      telefoneRegistro: {
+        el: telefoneRegistro,
+        test: v => /^\(\d{2}\)\s?\d{4,5}-\d{4}$/.test(v),
+        msg: 'Por favor, insira um telefone válido no formato (XX) XXXXX-XXXX.',
+      },
+      senhaRegistro: {
+        el: senhaRegistro,
+        test: v => (v ?? '').length >= 6,
+        msg: 'A senha deve ter pelo menos 6 caracteres.',
+      },
+      confirmarSenhaRegistro: {
+        el: confirmarSenhaRegistro,
+        test: v => (v ?? '').length >= 6 && v === (senhaRegistro?.value ?? ''),
+        msg: 'As senhas devem coincidir.',
+      },
+    };
+
+    // Validação em tempo real (blur)
+    Object.values(rules).forEach(r => r.el && attachBlurValidation(r.el, r));
+
+    // Se a senha mudar, revalida a confirmação
+    if (senhaRegistro && confirmarSenhaRegistro) {
+      senhaRegistro.addEventListener('input', () => {
+        if (confirmarSenhaRegistro.value) {
+          const r = rules.confirmarSenhaRegistro;
+          const ok = r.test(confirmarSenhaRegistro.value);
+          setValidity(confirmarSenhaRegistro, ok, r.msg);
         }
+      });
+    }
+
+    // Submit do registro
+    formularioRegistro.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      let okForm = true;
+      let firstInvalid = null;
+
+      Object.values(rules).forEach(r => {
+        if (!r.el) return;
+        const ok = r.test(r.el.value ?? '');
+        setValidity(r.el, ok, r.msg);
+        if (!ok && !firstInvalid) firstInvalid = r.el;
+        okForm = okForm && ok;
+      });
+
+      if (!okForm) {
+        firstInvalid?.focus();
+        return; // bloqueia envio
+      }
+
+      // Tudo certo: prossiga com o fluxo desejado
+      // Ex.: redirecionar
+      window.location.href = 'home';
+      // ou enviar: formularioRegistro.submit();
     });
-}
+  }
 
-// --- NOVA LÓGICA PARA O FORMULÁRIO DE REGISTRO ---
-const formularioRegistro = document.getElementById('formularioRegistro');
-if (formularioRegistro) {
+  // ============== ATIVAÇÃO DE LINK DA NAVBAR (se usar) ==============
+  const currentPath = window.location.pathname.split('/').pop();
+  if (currentPath === '') {
+    document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
+  } else {
+    const activeLink = document.querySelector(`.navbar-nav .nav-link[href="${currentPath}"]`);
+    if (activeLink) {
+      document.querySelectorAll('.navbar-nav .nav-link.active').forEach(l => l.classList.remove('active'));
+      activeLink.classList.add('active');
+      const dropdownToggle = activeLink.closest('.nav-item.dropdown')?.querySelector('.nav-link.dropdown-toggle');
+      dropdownToggle?.classList.add('active');
+    }
+    if (currentPath.startsWith('catalogo_')) {
+      document.querySelectorAll('.navbar-nav .nav-link.active').forEach(l => l.classList.remove('active'));
+      document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
+    }
+  }
 
-    const inputsRegistro = formularioRegistro.querySelectorAll('input');
-
-    // Adiciona o listener de 'blur' para feedback em tempo real
-    inputsRegistro.forEach(input => {
-        input.addEventListener('blur', validacao);
-    });
-
-    // Adiciona o listener de 'submit' para o formulário de registro
-    formularioRegistro.addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-        let isFormValid = true;
-
-        // Itera sobre todos os inputs para validar e aplicar feedback visual
-        inputsRegistro.forEach(input => {
-            // A função validacao aplica as classes e retorna true/false.
-            // Se qualquer chamada retornar false, o formulário se torna inválido.
-            if (!validacao({ target: input })) {
-                isFormValid = false;
-            }
-        });
-
-        // Se todos os campos forem válidos, redireciona para a página home
-        if (isFormValid) {
-            window.location.href = 'home';
-        }
-        // Caso contrário, o envio é bloqueado e o usuário verá os campos inválidos.
-    });
-}
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  let hasActivePageLink = false;
+  navLinks.forEach(link => {
+    if (link.href === window.location.href && window.location.pathname !== '/' && !window.location.pathname.endsWith('index.php')) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      const dropdownToggle = link.closest('.nav-item.dropdown')?.querySelector('.nav-link.dropdown-toggle');
+      dropdownToggle?.classList.add('active');
+      hasActivePageLink = true;
+    }
+  });
+  const pageName = window.location.pathname.split('/').pop();
+  if (!hasActivePageLink) {
+    if (pageName === 'index.php' || pageName === '') {
+      navLinks.forEach(l => l.classList.remove('active'));
+      document.querySelector('.navbar-nav .nav-link[href="index.php"]')?.classList.add('active');
+    } else if (pageName.startsWith('catalogo_')) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      document.querySelector('#navbarDropdownCatalogos')?.classList.add('active');
+    }
+  }
+});
