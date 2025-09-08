@@ -3,7 +3,7 @@
         'name' => 'matheusercoli/techacademy-3',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '1cc39d2a7b4ad7dac59a9b782fba2848686f9b24',
+        'reference' => '3c221b7088c1a2e75ee8ac159b65b1cccffed73e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -103,7 +103,7 @@
         'matheusercoli/techacademy-3' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '1cc39d2a7b4ad7dac59a9b782fba2848686f9b24',
+            'reference' => '3c221b7088c1a2e75ee8ac159b65b1cccffed73e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
