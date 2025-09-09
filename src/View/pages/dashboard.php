@@ -18,10 +18,7 @@
                             <a class="nav-link" href="#cliente">Clientes</a>
                         </li>
                         <li class="nav-item me-4">
-                            <a class="nav-link" href="">Vendas</a>
-                        </li>
-                        <li class="nav-item me-4">
-                            <a class="nav-link" href="">Faturamento</a>
+                            <a class="nav-link" href="#pedidos">Pedidos</a>
                         </li>
                         
                         <!--
@@ -169,6 +166,64 @@
                 <div class="form-group-produto">
                     <label class="form-label">Nome do Cliente</label>
                     <input type="text" name="nomeCliente" class="form-control" required>
+                </div>
+                <div class="form-group-produto">
+                    <label class="form-label">Email</label>
+                    <input type="text" name="emailCliente" class="form-control" required>
+                </div>
+            </div>
+            <div class="div-form-produto">
+                <div class="form-group-produto">
+                    <label class="form-label">Telefone</label>
+                    <input type="number" name="telefoneCliente" class="form-control" required>
+                </div>
+                <div class="form-group-produto">
+                    <label class="form-label">Senha</label>
+                    <input type="text" name="senhaCliente" class="form-control"  min="6" required>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn-protudo btn-primary-produto" style="margin-top: 15px" name="salvarCliente">
+                    <i class="fas fa-save"></i>
+                    <?php echo'cadastrar'; ?>
+                </button>
+            </div>
+        </form>
+        </div>
+    <div class="card-produto mb-4 tabela">
+        <div class="card-header-produto card-tabela">
+            <h2 class="card-title-produto card-titulo-tabela">
+                Tabela de Clientes:
+            </h2>
+        </div>
+        <table class="tabela-produto">
+            <tr><th>id_Cliente</th><th>Nome</th><th>Email</th><th>Telefone</th><th>Senha</th></tr>
+            <?php foreach($clientes as $client): ?>
+                <tr>
+                    <td><?=$client->getId()?></td>
+                    <td><?=$client->getNome()?></td>
+                    <td><?=$client->getEmail()?></td>
+                    <td><?=$client->getTelefone()?></td>
+                    <td><?=$client->getSenha()?></td>
+                </tr>
+                <?php endforeach ?>
+        </table>
+    </div>
+    <div class="page-header">
+        <h1 id="cliente"><i class="fa-solid fa-cart-shopping"></i>Itens de Pedidos</h1>
+        <p>Cadastre e veja os itens que foram Pedidos</p>
+    </div>
+    <div class="card-produto">
+        <div class="card-header-produto">
+            <h2 class="card-title-produto">
+                <?php echo 'Novos Itens Pedidos'; ?>
+            </h2>
+        </div>
+        <form method="post" id="cliente-form">
+            <div class="div-form-produto">
+                <div class="form-group-produto">
+                    <label class="form-label">Id do Pedido</label>
+                    <input type="text" name="idPedido" class="form-control" required>
                 </div>
                 <div class="form-group-produto">
                     <label class="form-label">Email</label>

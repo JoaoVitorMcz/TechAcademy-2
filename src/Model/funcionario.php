@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\Id;
 class Funcionario
 {
     #[Column, Id, GeneratedValue]
-    private int $id_funcionario;
+    private int $id;
     #[Column]
     private string $nome;
     #[Column]
@@ -32,7 +32,7 @@ class Funcionario
     }
     public function getIdFuncionario(): int
     {
-        return $this->id_funcionario;
+        return $this->id;
     }
 
     public function getNome(): string
@@ -55,9 +55,9 @@ class Funcionario
         return $this->salario;
     }
 
-    public function setIdFuncionario(int $id_funcionario): void
+    public function setIdFuncionario(int $id): void
     {
-        $this->id_funcionario = $id_funcionario;
+        $this->id = $id;
     }
 
     public function setNome(string $nome): void

@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\Id;
 class Produto
 {
     #[Column, Id, GeneratedValue]
-    private int $id_Produto;
+    private int $id;
     #[Column]
     private string $nome;
     #[Column]
@@ -32,7 +32,7 @@ class Produto
     }
     public function getIdProduto(): int
     {
-        return $this->id_Produto;
+        return $this->id;
     }
 
     public function getNome(): string
@@ -54,9 +54,9 @@ class Produto
     {
         return $this->estoque;
     }
-    public function setIdProduto(int $id_Produto): void
+    public function setIdProduto(int $id): void
     {
-        $this->id_Produto = $id_Produto;
+        $this->id = $id;
     }
 
     public function setNome(string $nome): void
@@ -91,65 +91,4 @@ class Produto
         $repository = $em->getRepository(Produto::class);
         return $repository->findAll();
     }
-    public static function updateProduto($id, $nome, $descricao, $preco, $estoque)
-    {
-        $em = Database::getEntityManager();
-
-        $produto = $em->find(Produto::class, $id);
-
-        if (!$produto) {
-            throw new \Exception("Produto não encontrado!");
-        }
-
-        
-        $produto->setNome($nome);
-        $produto->setDescricao($descricao);
-        $produto->setPreco($preco);
-        $produto->setEstoque($estoque);
-
-        
-        $em->persist($produto);
-        $em->flush();
-
-        return $produto;
-    }
-    public static function deleteProduto($id)
-    {
-        $em = Database::getEntityManager();
-
-        
-        $produto = $em->find(Produto::class, $id);
-
-        if (!$produto) {
-            throw new \Exception("Produto não encontrado!");
-        }
-
-       
-        $em->remove($produto);
-        $em->flush();
-
-        return true; 
-    }
-    public static function getProdutoById($id): ?Produto
-    {
-        $em = Database::getEntityManager();
-
-        
-        $produto = $em->find(Produto::class, $id);
-
-        
-        return $produto;
-    }
-     public static function addProduto(string $nome, string $descricao, float $preco, int $estoque): Produto
-    {
-    $em = Database::getEntityManager();
-
-    $produto = new Produto($nome, $descricao, $preco, $estoque);
-
-    $em->persist($produto);
-    $em->flush();
-
-    return $produto;
-    }
-
 }
