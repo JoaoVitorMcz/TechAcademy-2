@@ -3,152 +3,84 @@
 namespace App\Model;
 
 use App\Core\Database;
+use DateTime;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 
 #[Entity]
-class Produto
+class pedidos
 {
     #[Column, Id, GeneratedValue]
-    private int $id_Produto;
+    private int $id;
+    #[ManyToOne(targetEntity: Cliente::class, inversedBy: "pedidos")]
+    #[JoinColumn(name:"idCliente", referencedColumnName:"id", nullable:false)]
+    private Cliente $idCliente;
+    #[ManyToOne(targetEntity: Funcionario::class, inversedBy:"pedidos")]
+    #[JoinColumn(name:"idFuncionario", referencedColumnName:"id", nullable:false)]
+    private Funcionario $idFuncionario;
     #[Column]
-    private string $nome;
-    #[Column]
-    private string $descricao;
-    #[Column]
-    private float $preco;
-    #[Column]
-    private int $estoque;
-
-    public function __construct(string $nome, string $descricao, float $preco, int $estoque)
+    private DateTime $dataPedido;
+    public function __construct(Cliente $idCliente, Funcionario $idFuncionario, DateTime $dataPedido)
     {
-        $this->nome = $nome;
-        $this->descricao = $descricao;
-        $this->preco = $preco;
-        $this->estoque = $estoque;
+        $this->idCliente = $idCliente;
+        $this->idFuncionario = $idFuncionario;
+        $this->dataPedido = $dataPedido;
     }
-    public function getIdProduto(): int
+    public function getIdPedido(): int
     {
-        return $this->id_Produto;
+        return $this->id;
     }
 
-    public function getNome(): string
+    public function getIdCliente(): Cliente
     {
-        return $this->nome;
+        return $this->idCliente;
     }
 
-    public function getDescricao(): string
+    public function getIdFuncionario(): Funcionario
     {
-        return $this->descricao;
+        return $this->idFuncionario;
     }
 
-    public function getPreco(): float
+    public function getDataPedido(): DateTime
     {
-        return $this->preco;
+        return $this->dataPedido;
     }
 
-    public function getEstoque(): int
+    public function setIdPedido(int $id): void
     {
-        return $this->estoque;
-    }
-    public function setIdProduto(int $id_Produto): void
-    {
-        $this->id_Produto = $id_Produto;
+        $this->id = $id;
     }
 
-    public function setNome(string $nome): void
+    public function setIdCliente(Cliente $idCliente): void
     {
-        $this->nome = $nome;
+        $this->idCliente = $idCliente;
     }
 
-    public function setDescricao(string $descricao): void
+    public function setIdFuncionario(Funcionario $idFuncionario): void
     {
-        $this->descricao = $descricao;
+        $this->idFuncionario = $idFuncionario;
     }
 
-    public function setPreco(float $preco): void
+    public function setDataPedido(DateTime $dataPedido): void
     {
-        $this->preco = $preco;
+        $this->dataPedido = $dataPedido;
     }
-
-    public function setEstoque(int $estoque): void
-    {
-        $this->estoque = $estoque;
-    }
-
-
-    public function getAllProdutos(): array
+    public function save(): void
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(Produto::class);
+        $em->persist($this);
+        $em->flush();
+    }
+
+    public static function getAllItensPedidos(): array
+    {
+        $em = Database::getEntityManager();
+        $repository = $em->getRepository(ItensPedidos::class);
         return $repository->findAll();
     }
-    public function updateProduto($id, $nome, $descricao, $preco, $estoque)
-    {
-        $em = Database::getEntityManager();
-
-        $produto = $em->find(Produto::class, $id);
-
-        if (!$produto) {
-            throw new \Exception("Produto não encontrado!");
-        }
-
-        
-        $produto->setNome($nome);
-        $produto->setDescricao($descricao);
-        $produto->setPreco($preco);
-        $produto->setEstoque($estoque);
-
-        
-        $em->persist($produto);
-        $em->flush();
-
-        return $produto;
-    }
-    public function deleteProduto($id)
-    {
-        $em = Database::getEntityManager();
-
-        
-        $produto = $em->find(Produto::class, $id);
-
-        if (!$produto) {
-            throw new \Exception("Produto não encontrado!");
-        }
-
-       
-        $em->remove($produto);
-        $em->flush();
-
-        return true; 
-    }
-    public function getProdutoById($id): ?Produto
-    {
-        $em = Database::getEntityManager();
-
-        
-        $produto = $em->find(Produto::class, $id);
-
-        
-        return $produto;
-    }
-    // public function addProduto($nome, $descricao, $preco, $estoque): Produto
-    // {
-    //     $em = Database::getEntityManager();
-
-    //    // $produto = new Produto();
-    //     $produto->setNome($nome);
-    //     $produto->setDescricao($descricao);
-    //     $produto->setPreco($preco);
-    //     $produto->setEstoque($estoque);
-
-    
-    //     $em->persist($produto);
-    //     $em->flush();
-
-    //     return $produto; // retorna o produto recém-criado
-    // }
 }

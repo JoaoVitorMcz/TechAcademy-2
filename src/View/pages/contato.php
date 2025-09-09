@@ -1,11 +1,3 @@
-<?php
-// Apenas exibe mensagens se houver redirecionamento de envia.php
-if (isset($_GET['status'])) {
-    $tipo_alerta = $_GET['status'] === 'sucesso' ? 'success' : 'danger';
-    $mensagem_status = $_GET['status'] === 'sucesso' ? 'Sucesso!' : 'Erro!';
-    $mensagem_texto = isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : '';
-}
-?>
 
 <div class="container section-padding">
     <div class="row justify-content-center">
