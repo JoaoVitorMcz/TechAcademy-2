@@ -4,7 +4,7 @@
         <div class="col-md-7 col-lg-5">
             <div class="login-container p-5 shadow-sm">
                 <h2 class="text-center mb-4">Login</h2>
-                <form>
+                <form form method="POST" action="/login">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" required>

@@ -3,72 +3,80 @@
 namespace App\Model;
 
 use App\Core\Database;
-use DateTime;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\ManyToOne;
 
 #[Entity]
-class pedidos
+class Produto
 {
     #[Column, Id, GeneratedValue]
     private int $id;
-    #[ManyToOne(targetEntity: Cliente::class, inversedBy: "pedidos")]
-    #[JoinColumn(name:"idCliente", referencedColumnName:"id", nullable:false)]
-    private Cliente $idCliente;
-    #[ManyToOne(targetEntity: Funcionario::class, inversedBy:"pedidos")]
-    #[JoinColumn(name:"idFuncionario", referencedColumnName:"id", nullable:false)]
-    private Funcionario $idFuncionario;
     #[Column]
-    private DateTime $dataPedido;
-    public function __construct(Cliente $idCliente, Funcionario $idFuncionario, DateTime $dataPedido)
+    private string $nome;
+    #[Column]
+    private string $descricao;
+    #[Column]
+    private float $preco;
+    #[Column]
+    private int $estoque;
+
+    public function __construct(string $nome, string $descricao, float $preco, int $estoque)
     {
-        $this->idCliente = $idCliente;
-        $this->idFuncionario = $idFuncionario;
-        $this->dataPedido = $dataPedido;
+        $this->nome = $nome;
+        $this->descricao = $descricao;
+        $this->preco = $preco;
+        $this->estoque = $estoque;
     }
-    public function getIdPedido(): int
+    public function getIdProduto(): int
     {
         return $this->id;
     }
 
-    public function getIdCliente(): Cliente
+    public function getNome(): string
     {
-        return $this->idCliente;
+        return $this->nome;
     }
 
-    public function getIdFuncionario(): Funcionario
+    public function getDescricao(): string
     {
-        return $this->idFuncionario;
+        return $this->descricao;
     }
 
-    public function getDataPedido(): DateTime
+    public function getPreco(): float
     {
-        return $this->dataPedido;
+        return $this->preco;
     }
 
-    public function setIdPedido(int $id): void
+    public function getEstoque(): int
+    {
+        return $this->estoque;
+    }
+    public function setIdProduto(int $id): void
     {
         $this->id = $id;
     }
 
-    public function setIdCliente(Cliente $idCliente): void
+    public function setNome(string $nome): void
     {
-        $this->idCliente = $idCliente;
+        $this->nome = $nome;
     }
 
-    public function setIdFuncionario(Funcionario $idFuncionario): void
+    public function setDescricao(string $descricao): void
     {
-        $this->idFuncionario = $idFuncionario;
+        $this->descricao = $descricao;
     }
 
-    public function setDataPedido(DateTime $dataPedido): void
+    public function setPreco(float $preco): void
     {
-        $this->dataPedido = $dataPedido;
+        $this->preco = $preco;
+    }
+
+    public function setEstoque(int $estoque): void
+    {
+        $this->estoque = $estoque;
     }
     public function save(): void
     {
@@ -77,10 +85,10 @@ class pedidos
         $em->flush();
     }
 
-    public static function getAllItensPedidos(): array
+    public static function getAllProdutos(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(ItensPedidos::class);
+        $repository = $em->getRepository(Produto::class);
         return $repository->findAll();
     }
 }

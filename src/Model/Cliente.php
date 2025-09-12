@@ -85,4 +85,10 @@ class Cliente
         $em->persist($this);
         $em->flush();
     }
-}   
+    public static function getAllCliente(): array
+    {
+        $em = Database::getEntityManager();
+        $repository = $em->getRepository(Cliente::class);
+        return $repository->findAll();
+    }
+}

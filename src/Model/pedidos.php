@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 
 #[Entity]
-class pedidos
+class Pedidos
 {
     #[Column, Id, GeneratedValue]
     private int $id;
@@ -77,10 +77,10 @@ class pedidos
         $em->flush();
     }
 
-    public static function getAllItensPedidos(): array
+    public static function getAllPedidos(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(ItensPedidos::class);
+        $repository = $em->getRepository(Pedidos::class);
         return $repository->findAll();
     }
 }
