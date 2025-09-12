@@ -1,6 +1,6 @@
 {
-    "name": "matheusercoli/techacademy-3",
-    "description": "Template para um projeto com Doctrine",
+    "name": "joaovitormcz/techacademy-2",
+    "description": "Repositório dedicado ao projeto de TechAcademy 2",
     "type": "project",
     "require": {
         "doctrine/orm": "^3.5",
@@ -16,8 +16,8 @@
     },
     "authors": [
         {
-            "name": "Matheus Ercoli Aristides",
-            "email": "matheusercoli@gmail.com"
+            "name": "João Vitor Menezes Cortez",
+            "email": "joocortezz18@gmail.com"
         }
     ],
     "scripts": {

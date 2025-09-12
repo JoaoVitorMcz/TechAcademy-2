@@ -7,14 +7,15 @@ class RegistroController implements Controller
     public function render(): void
     {
         if($_POST){
-    $cliente = new Cliente(
-        nome: $_POST['nomeRegistro'],
-        email: $_POST['emailRegistro'],
-        telefone: $_POST['telefoneRegistro'],
-        senha: $_POST['senhaRegistro']
-    );
-    $cliente->save();
+            $cliente = new Cliente(
+                nome: $_POST['nomeRegistro'],
+                email: $_POST['emailRegistro'],
+                telefone: $_POST['telefoneRegistro'],
+                senha: $_POST['senhaRegistro']
+            );
+            $cliente->save();
         }
+        
         include __DIR__ . '/../View/includes/header.php';
         include __DIR__ . '/../View/pages/registro.php';
         include __DIR__ . '/../View/includes/footer.php';
