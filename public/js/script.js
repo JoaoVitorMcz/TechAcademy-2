@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmarSenhaRegistro = document.getElementById('confirmarSenhaRegistro');
     const toggleSenhaBtn = document.getElementById('toggleSenha');
 
-    // Toggle de visibilidade da senha
     function visibilidadeSenha(input, button) {
       if (!input || !button) return;
       const icon = button.querySelector('i');
@@ -106,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleSenhaBtn.addEventListener('click', () => visibilidadeSenha(senhaRegistro, toggleSenhaBtn));
     }
 
-    // Regras centralizadas (IDs do registro)
     const rules = {
       nomeRegistro: {
         el: nomeRegistro,
@@ -135,10 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     };
 
-    // Validação em tempo real (blur)
     Object.values(rules).forEach(r => r.el && attachBlurValidation(r.el, r));
 
-    // Se a senha mudar, revalida a confirmação
     if (senhaRegistro && confirmarSenhaRegistro) {
       senhaRegistro.addEventListener('input', () => {
         if (confirmarSenhaRegistro.value) {
@@ -149,31 +145,26 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // Submit do registro
     formularioRegistro.addEventListener('submit', function (event) {
-      event.preventDefault();
+  let okForm = true;
+  let firstInvalid = null;
 
-      let okForm = true;
-      let firstInvalid = null;
+  Object.values(rules).forEach(r => {
+    if (!r.el) return;
+    const ok = r.test(r.el.value ?? '');
+    setValidity(r.el, ok, r.msg);
+    if (!ok && !firstInvalid) firstInvalid = r.el;
+    okForm = okForm && ok;
+  });
 
-      Object.values(rules).forEach(r => {
-        if (!r.el) return;
-        const ok = r.test(r.el.value ?? '');
-        setValidity(r.el, ok, r.msg);
-        if (!ok && !firstInvalid) firstInvalid = r.el;
-        okForm = okForm && ok;
-      });
+  if (!okForm) {
+    event.preventDefault();
+    firstInvalid?.focus();
+    return;
+  }
+  // Se estiver tudo certo -> deixa o submit seguir normalmente
+});
 
-      if (!okForm) {
-        firstInvalid?.focus();
-        return; // bloqueia envio
-      }
-
-      // Tudo certo: prossiga com o fluxo desejado
-      // Ex.: redirecionar
-      window.location.href = 'home';
-      // ou enviar: formularioRegistro.submit();
-    });
   }
 
   // ============== ATIVAÇÃO DE LINK DA NAVBAR (se usar) ==============
